@@ -1,0 +1,399 @@
+body {
+	font-family: sans-serif;
+	font-size: 16px;
+	font-family: $sans;
+	background: white;
+	color: black;
+	line-height: 1.5em;
+}
+img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	display: block;
+}
+a {
+	&:hover {
+		text-decoration: underline;
+	}
+}
+strong {
+	font-weight: 700;
+}
+em {
+	font-style: italic;
+}
+h1 {
+	font-size: 2em;
+	font-weight: 700;
+	font-family: $sans;
+	margin: 0.1em 0 0.5em 0;
+	line-height: 1.2em;
+	padding-bottom: 0.25em;
+	border-bottom: 1px solid black;
+	a {
+		text-decoration: none;
+		color: black;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+h2,
+h3 {
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-family: $sans;
+	font-weight: 700;
+	line-height: 1.2em;
+	a {
+		text-decoration: none;
+	}
+}
+p {
+	margin: 0.75em 0;
+}
+blockquote {
+	margin-left: 1em;
+	padding-left: 0.5em;
+	font-style: italic;
+	border-left: 10px solid darken(white, 10%);
+}
+input {
+	-webkit-appearance:none;
+	@include border-radius(0);
+	border: 0;
+	background: white;
+	display: block;
+	font-family: $sans;
+	font-size: 16px;
+	outline: none;
+	&[type="text"] {
+		width:100%;
+		color: darken(white, 70%);
+	}
+}
+
+// Chrome
+// ==========================================
+	// Header
+	.header {
+		position: fixed;
+		text-align: center;
+		width: 100%;
+		z-index: 99999;
+		color: white;
+		img {
+			display: inline-block
+		}
+		a {
+			color: white;
+			text-decoration: none;
+		}
+		h1 {
+			border: 0;
+			margin: 0;
+			padding: 0;
+			font-size: 2em;
+			line-height: 30px;
+			font-weight: 800;
+			text-transform: uppercase;
+			font-style: italic;
+		}
+	}
+	// Masthead
+	.masthead {
+		padding: 20px 0;
+		img {
+			height: 30px;
+			display: inline-block;
+		}
+		a {
+			font-size: 0;
+			display: block;
+			line-height: 30px;
+			height: 30px;
+		}
+		&.archive {
+			padding: 7px 0 3px 0;
+		}
+	}
+	.category-title {
+		margin: 0;
+		line-height: 30px;
+		height: 30px;
+		font-weight: 800;
+		font-style: italic;
+	}
+	// Drawers
+	.drawer-container {
+		background: black;
+		@include clearfix;
+	}
+	.drawer {
+		height: 0;
+		overflow: hidden;
+		@include transition(all .2s ease);
+		&.is-open {
+			height: 40px;
+		}
+	}
+	.drawer-toggles {
+		a {
+			@include transition(all .2s ease);
+			display: block;
+			width: 70px;
+			height: 70px;
+			line-height: 70px;
+			position: absolute;
+			top: 0;
+			&:hover {
+				background: rgba(0,0,0,0.3);
+			}
+			&.is-active {
+				background: black;
+			}
+		}
+		.menu {
+			right: 0;
+		}
+		.search {
+			left: 0;
+		}
+	}
+	// Menu
+	.menu {
+		@include clearfix;
+		li {
+			float: left;
+		}
+		a {
+			font-weight: 800;
+			font-style: italic;
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			padding: 0 1em;
+			&:hover {
+				background: darken(white, 90%);
+			}
+		}
+	}
+	// Search
+	.searchform {
+		position: relative;
+		label {
+			display: none;
+		}
+		input[type="text"] {
+			padding: 0 1em;
+			line-height: 20px;
+			height: 40px;
+			background: darken(white, 90%);
+			color: white;
+			font-weight: 800;
+			font-style: italic;
+		}
+		input[type="submit"] {
+			display: none;
+		}
+	}
+
+	// Footer
+	.footer {
+		border-top: 1px solid darken(white, 20%);
+		// padding: 0 1em;
+		font-size: 0.875em;
+		font-weight: 800;
+		font-style: italic;
+		color: darken(white, 20%);
+		font-family: $sans;
+		@include clearfix;
+	}
+
+// Layout
+// ==========================================
+	$sidebar_width: 320px;
+
+	// Content
+	.content {
+		color: black;
+		background: white;
+		font-family: $serif;
+		@include clearfix;
+		padding-top: 70px;
+	}
+
+	// Scroller
+	.scroller {
+		padding-left: 320px;
+		position: relative;
+		@include clearfix;
+	}
+	// Sidebar
+	.sidebar {
+		background-color: darken(white, 10%);
+
+		position: fixed;
+		left: 0px;
+		top: 70px; // compensate for fixed nav
+
+		height: 100%;
+
+		@include display-box;
+		@include box-orient(vertical);
+		@include box-direction(reverse);
+	}
+	.sidebar-scroll-wrapper {
+		width: 320px; // Sidebar Width
+		height: 100%;
+
+		@include display-box;
+		@include box-orient(vertical);
+		@include box-direction(normal);
+		@include box-flex(1);
+	}
+	.sidebar-scroll {
+		bottom: 70px; // compensate for fixed nav
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		overflow-y: scroll;
+
+		@include box-flex(1);
+	}
+	.admin-bar {
+		margin-top: 32px;
+		.sidebar {
+			top: 102px;
+		}
+		.sidebar-scroll {
+			bottom: 102px;
+		}
+	}
+
+	// Sidebar entry
+	.sidebar-entry {
+		border-top: 1px solid white;
+		font-size: 0.875em;
+		&:first-child {
+			border: 0;
+		}
+		a {
+			text-decoration: none;
+		}
+		p {
+			color: black;
+			margin: 0;
+			line-height: 1.4em;
+		}
+		h3 {
+			margin: 0.5em 0 0.75em;
+		}
+		&:hover {
+			background: darken(white, 20%);
+		}
+		.entry-content {
+			padding: 1em 0.75em;
+		}
+	}
+	// Main Entry
+	.main-entry {
+		max-width: 1080px;
+		margin: 0 auto;
+		border-top: 1px solid darken(white, 10%);
+		padding: 1em 0;
+		&:first-child {
+			padding-top: 0;
+			border: 0;
+		}
+	}
+	// Column
+	.column {
+		max-width: 600px;
+		margin: 2em auto;
+		padding: 0 2em;
+	}
+
+	// Advertisement 
+	.advertisement {
+		background: darken(white, 10%);
+		// padding: 1em 2em;
+		text-align: center;
+		@include clearfix;
+		font-family: $sans;
+		.column {
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
+	}
+
+// Modules
+// ==========================================
+	
+	// Post Categories
+	.post-categories {
+		@include clearfix;
+		line-height: 1.2em;
+		font-family: $sans;
+		font-size: 0.875em;
+		li {
+			float: left;
+			margin-right: 1em;
+		}
+		color: darken(white, 50%);
+		font-weight: 700;
+	}
+	// Featured Image
+	.featured-image {
+		background-color: darken(white, 5%);
+		width: 100%;
+		// max-width: 1080px;
+		img {
+			width: 100%;
+		}
+	}
+	.featured-image-caption {
+		background: black;
+		color: white;
+		@include clearfix;
+		padding: 0 1em;
+		font-family: $sans;
+		font-size: 0.875em;
+	}
+	// Meta
+	.meta {
+		font-family: $sans;
+		font-size: 0.875em;
+		color: darken(white, 50%);
+	}
+	// Intro
+	.intro {
+		font-weight: bold;
+		font-family: $sans;
+	}
+	// Comments
+	#respond {
+		margin: 30px;
+		padding: 30px;
+		border: 1px solid lightgrey;
+	}
+	// system-message
+	.system-message {
+		text-align: center;
+		margin: 2em;
+		font-family: $sans;
+		font-weight: 800;
+		font-style: italic;
+		color: darken(white, 50%);
+	}
+	// Spinner
+	.spinner {
+		display: none;
+		text-align: center;
+		background: white;
+		font-family: $sans;
+		font-weight: 800;
+		font-style: italic;
+	}
+	

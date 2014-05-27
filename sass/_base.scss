@@ -1,0 +1,32 @@
+// Colors
+// ====================================
+	$link: #3873ed;
+
+// Fonts
+// ===================================
+	@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700);
+
+	$sans: 'Open Sans', sans-serif;
+	$serif: 'Georgia', serif;
+
+// Utilities
+// ===================================
+	
+	@mixin clearfix() {
+		*zoom: 1;
+		&:before,
+		&:after {
+			content: " ";
+			display: table;
+		}
+		&:after {
+			clear: both;
+		}
+	}
+
+	.clearfix {
+		@include clearfix;
+	}
+
+
+
