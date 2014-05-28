@@ -13,6 +13,7 @@ img {
 	display: block;
 }
 a {
+	color: $link;
 	&:hover {
 		text-decoration: underline;
 	}
@@ -104,12 +105,12 @@ input {
 	// Masthead
 	.masthead {
 		padding: 20px 0;
+		background: $brand;
 		img {
 			height: 30px;
 			display: inline-block;
 		}
 		a {
-			font-size: 0;
 			display: block;
 			line-height: 30px;
 			height: 30px;
@@ -177,6 +178,11 @@ input {
 			&:hover {
 				background: darken(white, 90%);
 			}
+		}
+	}
+	.current-menu-item {
+		a {
+			color: $link;
 		}
 	}
 	// Search

@@ -106,3 +106,9 @@
 		// 'after_title'   => "</h2>\n",
 	);
 	register_sidebar( $ad_sidebar );
+
+
+
+
+
+

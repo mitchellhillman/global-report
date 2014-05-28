@@ -14,7 +14,6 @@
 		'post__not_in'			=> array($page_id), // Exclude current post
 		'date_query'			=> array(
 			'before' => $page_date, // affter current article date
-			'inclusive' => true,
 		),
 		'cat'					=> $cat_id, // show certain category
 		'paged'					=> $paged,

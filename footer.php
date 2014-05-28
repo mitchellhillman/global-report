@@ -30,7 +30,8 @@
 					// Page and Date
 					<?php else: ?>
 						var pageId 		= <?php echo get_the_ID(); ?>;
-						var pageDate 	= <?php echo get_post_time('"M d, Y"', true, get_the_ID()); ?>;
+						// var pageDate 	= <?php echo get_post_time('"M d, Y"', true, get_the_ID()); ?>;
+						var pageDate 	= <?php echo get_post_time('"c"', true, get_the_ID()); ?>;
 						dataArray['page_id'] = pageId;
 						dataArray['page_date'] = pageDate;
 					<?php endif; ?>
