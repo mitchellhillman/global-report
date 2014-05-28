@@ -53,17 +53,18 @@ $(document).ready(function() {
 // Change URL
 // =====================================================
 	function changeUrl() {
+		var newUrlPageId = $('.menu-entry:first').attr('data-id');
 		$('.main-entry').each(function() {
 			if ( $(this).offset().top < $(window).scrollTop() + 200 ) { 
 				// Visual reality check
 				$('.main-entry').css('background', 'white');
 				$(this).css('background', 'pink');
 
-				// The History API trickery
-				var newUrlPageId = $(this).attr('data-id');
-				pushState(newUrlPageId);
-			}  
+				// Set the new page url
+				newUrlPageId = $(this).attr('data-id');
+			}
 		});
+		pushState(newUrlPageId);
 	}
 
 // Scroll Event

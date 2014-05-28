@@ -1,4 +1,4 @@
-<div class="main-entry" data-id="<?php echo get_the_ID(); ?>">
+<div class="main-entry" data-id="<?php echo get_the_ID(); ?>" id="post-<?php echo get_the_ID();; ?>">
 
 	<div class="column">
 		<ul class="post-categories">

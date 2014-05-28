@@ -18,7 +18,6 @@ Plugins it does support:
 #### To Do:
 
 ### priority
-- refactor JS changeUrl() to trigger only once when a page gets focus (use travelling menu as an example: http://stackoverflow.com/questions/9979827/change-active-menu-item-on-page-scroll)
 - refactor JS loadPostAndCount() to accomodate for very short articles
 
 ### backlog
