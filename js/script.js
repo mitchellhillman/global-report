@@ -37,19 +37,16 @@ $(document).ready(function() {
 	$('.main').append('<div class="spinner">Loading&hellip;</div>')
 	var	pageNumber = 1;
 
-	for
-
 	loadPostAndCount();
-
 
 	// Load Next Article
 	function loadPostAndCount() {
-		if (!$('body').hasClass('page') { // don't do this on pages
-			var pageTooShort 		= $('.main').height() < $(window).height(),
-				scrolledToBottom 	= $(window).scrollTop() + $(window).height() == $(document).height(),
-				noScrollBar			= $(window).height() == $(document).height();
+		if (!$('body').hasClass('page') ) { // don't do this on pages
+			var scrolledToBottom 		= $(window).scrollTop() + $(window).height() == $(document).height(),
+				scrolledCloseToBottom	= $(window).scrollTop() + $(window).height() > $(document).height() - 100,
+				pageTooShort			= $('.main').height() < $(window).height();
 
-			if (pageTooShort || scrolledToBottom || noScrollBar) {
+			if (scrolledCloseToBottom) {
 				loadPost(pageNumber);
 				pageNumber++;
 			}
@@ -59,7 +56,7 @@ $(document).ready(function() {
 // Change URL
 // =====================================================
 	function changeUrl() {
-		if (!$('body').hasClass('page') { // don't do this on pages  
+		if (!$('body').hasClass('page') ) { // don't do this on pages  
 			var newUrlPageId = $('.menu-entry:first').attr('data-id');
 			$('.main-entry').each(function() {
 				if ( $(this).offset().top < $(window).scrollTop() + 200 ) { 
@@ -67,8 +64,13 @@ $(document).ready(function() {
 				}
 			});
 			pushState(newUrlPageId);
-			console.log('test');
+			highlightSidebar(newUrlPageId);
 		}
+	}
+
+	function highlightSidebar(id) {
+		$('.sidebar-entry').removeClass('active');
+		$('.sidebar-entry#post-' + id).addClass('active'); // potentially a stupid feature. I may remove it. 
 	}
 
 // Scroll Event

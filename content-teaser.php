@@ -1,4 +1,4 @@
-<div class="sidebar-entry">
+<div class="sidebar-entry" data-id="<?php echo get_the_ID(); ?>" id="post-<?php echo get_the_ID();; ?>">
 	<div class="entry-content">
 		<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
 		<ul class="post-categories">

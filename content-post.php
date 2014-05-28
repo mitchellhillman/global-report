@@ -3,11 +3,10 @@
 	<div class="column">
 		<ul class="post-categories">
 		<?php
-			the_category();
-			// $categories = get_the_category('' );
-			// foreach ($categories as $category) {
-			// echo '<li>'.$category->name.'</li>';
-			// }
+			$categories = get_the_category('' );
+			foreach ($categories as $category) {
+			echo '<li>'.$category->name.'</li>';
+			}
 		?>
 		</ul>
 		<h1><?php the_title(); ?></h1>
@@ -44,7 +43,7 @@
 				<?php the_excerpt() ?>
 			</div><!-- /.intro -->	
 		<?php endif ?>
-		<?php the_content(); ?>
+		<?php the_content('Read more...'); ?>
 	</div><!-- /.column -->
 
 </div><!-- /.main-entry -->

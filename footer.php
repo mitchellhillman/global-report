@@ -12,6 +12,7 @@
 			
 			// Perform WP_query to get the correct next article
 			function loadPost(pageNumber) {
+				console.log(pageNumber);
 				$('.spinner').show();
 
 				// Start building the data passed to the ajax function
@@ -51,6 +52,10 @@
 						success: function(html){
 							$('.spinner').hide();
 							$(".main").append(html);
+							if ($('.main').height() < $(window).height()) {
+								loadPost(pageNumber);
+								pageNumber++;
+							}
 						}
 				});
 			}

@@ -77,149 +77,6 @@ input {
 	}
 }
 
-// Chrome
-// ==========================================
-	// Header
-	.header {
-		position: fixed;
-		text-align: center;
-		width: 100%;
-		z-index: 99999;
-		color: white;
-		img {
-			display: inline-block
-		}
-		a {
-			color: white;
-			text-decoration: none;
-		}
-		h1 {
-			border: 0;
-			margin: 0;
-			padding: 0;
-			font-size: 2em;
-			line-height: 30px;
-			font-weight: 800;
-			text-transform: uppercase;
-			font-style: italic;
-		}
-	}
-	// Masthead
-	.masthead {
-		padding: 20px 0;
-		background: $brand;
-		img {
-			height: 30px;
-			display: inline-block;
-		}
-		a {
-			display: block;
-			line-height: 30px;
-			height: 30px;
-		}
-		&.archive {
-			padding: 7px 0 3px 0;
-		}
-	}
-	.category-title {
-		margin: 0;
-		line-height: 30px;
-		height: 30px;
-		font-weight: 800;
-		font-style: italic;
-	}
-	// Drawers
-	.drawer-container {
-		background: black;
-		@include clearfix;
-	}
-	.drawer {
-		height: 0;
-		overflow: hidden;
-		@include transition(all .2s ease);
-		&.is-open {
-			height: 40px;
-		}
-	}
-	.drawer-toggles {
-		a {
-			@include transition(all .2s ease);
-			display: block;
-			width: 70px;
-			height: 70px;
-			line-height: 70px;
-			position: absolute;
-			top: 0;
-			&:hover {
-				background: rgba(0,0,0,0.3);
-			}
-			&.is-active {
-				background: black;
-			}
-		}
-		.menu {
-			right: 0;
-		}
-		.search {
-			left: 0;
-		}
-	}
-	// Menu
-	.menu {
-		@include clearfix;
-		li {
-			float: left;
-		}
-		a {
-			font-weight: 800;
-			font-style: italic;
-			display: block;
-			height: 40px;
-			line-height: 40px;
-			padding: 0 1em;
-			&:hover {
-				background: darken(white, 90%);
-			}
-		}
-	}
-	.current-menu-item,
-	.current_page_item {
-		a {
-			color: $brand;
-		}
-	}
-	// Search
-	.searchform {
-		position: relative;
-		label {
-			display: none;
-		}
-		input[type="text"] {
-			padding: 0 1em;
-			line-height: 20px;
-			height: 40px;
-			background: darken(white, 90%);
-			color: white;
-			font-weight: 800;
-			font-style: italic;
-		}
-		input[type="submit"] {
-			display: none;
-		}
-	}
-
-	// Footer
-	.footer {
-		border-top: 1px solid darken(white, 20%);
-		// padding: 0 1em;
-		font-size: 0.875em;
-		font-weight: 800;
-		font-style: italic;
-		color: darken(white, 20%);
-		font-family: $sans;
-		@include clearfix;
-	}
-
 // Layout
 // ==========================================
 	$sidebar_width: 320px;
@@ -299,7 +156,8 @@ input {
 		h3 {
 			margin: 0.5em 0 0.75em;
 		}
-		&:hover {
+		&:hover,
+		&.active {
 			background: darken(white, 20%);
 		}
 		.entry-content {
@@ -336,6 +194,157 @@ input {
 			margin-bottom: 1em;
 		}
 	}
+
+
+// Chrome
+// ==========================================
+	// Header
+	.header {
+		position: fixed;
+		text-align: center;
+		width: 100%;
+		z-index: 99999;
+		color: white;
+		img {
+			display: inline-block
+		}
+		a {
+			color: white;
+			text-decoration: none;
+		}
+		h1 {
+			border: 0;
+			margin: 0;
+			padding: 0;
+			font-size: 2em;
+			line-height: 30px;
+			font-weight: 800;
+			text-transform: uppercase;
+			font-style: italic;
+		}
+	}
+	// Masthead
+	.masthead {
+		padding: 20px 0;
+		background: $brand;
+		img {
+			height: 30px;
+			display: inline-block;
+		}
+		a {
+			display: block;
+			line-height: 30px;
+			height: 30px;
+		}
+		&.archive {
+			padding: 7px 0 3px 0;
+		}
+	}
+
+	.category-title {
+		margin: 0;
+		line-height: 30px;
+		height: 30px;
+		font-weight: 800;
+		font-style: italic;
+	}
+	// Drawers
+	.drawer-container {
+		background: black;
+		@include clearfix;
+	}
+	.drawer {
+		height: 0;
+		overflow: hidden;
+		@include transition(all .2s ease);
+		&.is-open {
+			height: 40px;
+		}
+	}
+	.drawer-toggles {
+		a {
+			@include transition(all .2s ease);
+			display: block;
+			width: 70px;
+			height: 70px;
+			line-height: 70px;
+			position: absolute;
+			top: 0;
+			&:hover {
+				background: rgba(0,0,0,0.3);
+			}
+			&.is-active {
+				background: black;
+			}
+		}
+		.menu {
+			right: 0;
+		}
+		.search {
+			left: 0;
+		}
+	}
+	// Menu
+	.menu {
+		@include clearfix;
+		li {
+			float: left;
+		}
+		a {
+			font-weight: 800;
+			font-style: italic;
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			padding: 0 1em;
+			&:hover {
+				background: darken(white, 90%);
+			}
+		}
+		ul {
+			ul {
+				display: none;	
+			}
+		}
+	}
+	.current-menu-item,
+	.current_page_item {
+		a {
+			color: $brand;
+		}
+	}
+	// Search
+	.searchform {
+		position: relative;
+		label {
+			display: none;
+		}
+		input[type="text"] {
+			padding: 0 1em;
+			line-height: 40px;
+			height: 40px;
+			background: darken(white, 90%);
+			color: white;
+			font-weight: 800;
+			font-style: italic;
+		}
+		input[type="submit"] {
+			display: none;
+		}
+	}
+
+	// Footer
+	.footer {
+		border-top: 1px solid darken(white, 20%);
+		// padding: 0 1em;
+		font-size: 0.875em;
+		font-weight: 800;
+		font-style: italic;
+		color: darken(white, 20%);
+		font-family: $sans;
+		@include clearfix;
+	}
+
 
 // Modules
 // ==========================================
@@ -397,8 +406,13 @@ input {
 		color: darken(white, 50%);
 	}
 	// Spinner
+	.main {
+		position: relative;
+	}
 	.spinner {
 		display: none;
+		padding: 2em;
+
 		text-align: center;
 		background: white;
 		font-family: $sans;
