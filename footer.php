@@ -53,6 +53,7 @@
 							$('.spinner').hide();
 							$(".main").append(html);
 							if ($('.main').height() < $(window).height()) {
+								pageNumber++;
 								loadPost(pageNumber);
 								pageNumber++;
 							}
