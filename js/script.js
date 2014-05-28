@@ -36,7 +36,11 @@ $(document).ready(function() {
 
 	$('.main').append('<div class="spinner">Loading&hellip;</div>')
 	var	pageNumber = 1;
+
+	for
+
 	loadPostAndCount();
+
 
 	// Load Next Article
 	function loadPostAndCount() {
