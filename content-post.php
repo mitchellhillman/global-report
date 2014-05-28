@@ -3,10 +3,11 @@
 	<div class="column">
 		<ul class="post-categories">
 		<?php
-			$categories = get_the_category('' );
-			foreach ($categories as $category) {
-			echo '<li>'.$category->name.'</li>';
-			}
+			the_category();
+			// $categories = get_the_category('' );
+			// foreach ($categories as $category) {
+			// echo '<li>'.$category->name.'</li>';
+			// }
 		?>
 		</ul>
 		<h1><?php the_title(); ?></h1>

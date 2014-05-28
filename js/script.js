@@ -40,31 +40,31 @@ $(document).ready(function() {
 
 	// Load Next Article
 	function loadPostAndCount() {
-		var pageTooShort 		= $('.main').height() < $(window).height(),
-			scrolledToBottom 	= $(window).scrollTop() + $(window).height() == $(document).height(),
-			noScrollBar			= $(window).height() == $(document).height();
-		console.log(noScrollBar);
-		if (pageTooShort || scrolledToBottom || noScrollBar) {
-			loadPost(pageNumber);
-			pageNumber++;	
+		if (!$('body').hasClass('page') { // don't do this on pages
+			var pageTooShort 		= $('.main').height() < $(window).height(),
+				scrolledToBottom 	= $(window).scrollTop() + $(window).height() == $(document).height(),
+				noScrollBar			= $(window).height() == $(document).height();
+
+			if (pageTooShort || scrolledToBottom || noScrollBar) {
+				loadPost(pageNumber);
+				pageNumber++;
+			}
 		}
 	}
 
 // Change URL
 // =====================================================
 	function changeUrl() {
-		var newUrlPageId = $('.menu-entry:first').attr('data-id');
-		$('.main-entry').each(function() {
-			if ( $(this).offset().top < $(window).scrollTop() + 200 ) { 
-				// Visual reality check
-				$('.main-entry').css('background', 'white');
-				$(this).css('background', 'pink');
-
-				// Set the new page url
-				newUrlPageId = $(this).attr('data-id');
-			}
-		});
-		pushState(newUrlPageId);
+		if (!$('body').hasClass('page') { // don't do this on pages  
+			var newUrlPageId = $('.menu-entry:first').attr('data-id');
+			$('.main-entry').each(function() {
+				if ( $(this).offset().top < $(window).scrollTop() + 200 ) { 
+					newUrlPageId = $(this).attr('data-id');
+				}
+			});
+			pushState(newUrlPageId);
+			console.log('test');
+		}
 	}
 
 // Scroll Event

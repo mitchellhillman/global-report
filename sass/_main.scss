@@ -14,7 +14,9 @@ img {
 }
 a {
 	color: $link;
+	text-decoration: none;
 	&:hover {
+		color: black;
 		text-decoration: underline;
 	}
 }
@@ -180,9 +182,10 @@ input {
 			}
 		}
 	}
-	.current-menu-item {
+	.current-menu-item,
+	.current_page_item {
 		a {
-			color: $link;
+			color: $brand;
 		}
 	}
 	// Search

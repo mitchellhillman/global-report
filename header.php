@@ -30,7 +30,8 @@
 			a {
 				color: <?php echo get_theme_mod('link_color'); ?>;
 			}
-			.current-menu-item a {
+			.current-menu-item,
+			.current_page_item  {
 				color: <?php echo get_theme_mod('header_color'); ?>;
 			}
 		</style>
