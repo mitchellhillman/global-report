@@ -34,22 +34,45 @@ $(document).ready(function() {
 // Infinite Scroll
 // =====================================================
 
+	$('.main').append('<div class="spinner">Loading&hellip;</div>')
+	var	pageNumber = 1;
+	loadPostAndCount();
+
 	// Load Next Article
-	// Shitty hack to fix the too short article issue
-	if ( $('.main').height() < $(window).height() ) {
-		loadArticle(pageNumber);
-		pageNumber++;
-	}
-	if( $(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-		loadArticle(pageNumber);
-		pageNumber++;
-	}
-	$(window).scroll(function() { 
-	 	if( $(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-			loadArticle(pageNumber);
-			pageNumber++;
+	function loadPostAndCount() {
+		var pageTooShort 		= $('.main').height() < $(window).height(),
+			scrolledToBottom 	= $(window).scrollTop() + $(window).height() == $(document).height(),
+			noScrollBar			= $(window).height() == $(document).height();
+		console.log(noScrollBar);
+		if (pageTooShort || scrolledToBottom || noScrollBar) {
+			loadPost(pageNumber);
+			pageNumber++;	
 		}
+	}
+
+// Change URL
+// =====================================================
+	function changeUrl() {
+		$('.main-entry').each(function() {
+			if ( $(this).offset().top < $(window).scrollTop() + 200 ) { 
+				// Visual reality check
+				$('.main-entry').css('background', 'white');
+				$(this).css('background', 'pink');
+
+				// The History API trickery
+				var newUrlPageId = $(this).attr('data-id');
+				pushState(newUrlPageId);
+			}  
+		});
+	}
+
+// Scroll Event
+// =====================================================
+	$(window).scroll(function() {
+		loadPostAndCount();
+		changeUrl();
 	});
+
 
 // Kayboard Controls
 // =====================================================

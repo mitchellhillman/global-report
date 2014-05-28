@@ -1,4 +1,4 @@
-# README #
+# README
 
 Global Report is a Wordpress theme by Mitchell Hillman which is inspired by the News Magazine Format of Quarz, Time Magazine and TNW. It features: 
 
@@ -9,17 +9,28 @@ Global Report is a Wordpress theme by Mitchell Hillman which is inspired by the 
 - Retina support
 - URL rewriting with AJAX requests
 
-### To Do:
+This theme has very specific set of features and challenges and as such may not support 'typical' plugins. 
 
-- BACKEND fix same date issue
-- INTERACTION fix too short page issue
-- INTERACTION fix the url trigger going off too many times
-- STYLE menu styles
-- STYLE complete styles on post page (don't forget the images and galleries)
-- THEME shortcodes? 
-- THEME share buttons on posts
-- INTERACTION responsive / mobile version
-- THEME make favicon work
-- STYLE clean up icons screenshots and imagery
-- THEME add more custizable options
-- THEME add documentation
+Plugins it does support: 
+
+- nuthin' tested yet!
+
+#### To Do:
+
+### priority
+- fix same date issue
+- refactor JS changeUrl() to trigger only once when a page gets focus (use travelling menu as an example: http://stackoverflow.com/questions/9979827/change-active-menu-item-on-page-scroll)
+- refactor JS loadPostAndCount() to accomodate for very short articles
+
+### backlog
+- a user should be able to share posts individually from the headline
+- social media links for blog. should be customizable from backend
+- resolve centered logo issue
+- complete styles on post page
+- incorporate commenting? 
+- mobile version
+- make favicon work
+- clean up icons and screenshots
+- add 'real' content
+- test against popular plugins
+- add documentation

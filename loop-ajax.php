@@ -1,5 +1,3 @@
-
-
 <?php
 
 	$paged 			= $_POST['page_no'];
@@ -35,5 +33,6 @@
 			get_template_part( 'content', 'post' );				
 		}
 	}
+
 	$post = $temp_post; // Restore the value of $post to the original
 ?>

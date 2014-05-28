@@ -4,22 +4,23 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		
 		<?php 
-		// Infinite Scroll
+		// AJAX Functions
 		// ================
-		// Script is written inline for PHP values that need to come
-		// from the database. All other scripts relating to this feature
-		// are located in scripts.js
+		// Ajax functions are written inline to take advantage of 
+		// PHP functions to provide contextual data
 		if (!is_page()): ?>
 			<script type="text/javascript">
-				$('.main').append('<div class="spinner">Loading&hellip;</div>')
-				var	pageNumber = 1;
-
-				function loadArticle(pageNumber) {
+				
+				// Perform WP_query to get the correct next article
+				function loadPost(pageNumber) {
 					$('.spinner').show();
 
+					// Start building the data passed to the ajax function
 					var dataArray = {
 						'action': 'infinite_scroll',
 					};
+
+					// Add some details
 
 					// Search Query
 					<?php if (is_search()): ?>
@@ -39,8 +40,10 @@
 						dataArray['cat_id'] = catId;
 					<?php endif; ?>
 
+					// Page number
 					dataArray['page_no'] = pageNumber;
 
+					// Make the call
 					$.ajax({
 							url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
 							type:'POST',
@@ -50,40 +53,24 @@
 								$(".main").append(html);
 							}
 					});
-
-					return false;
 				}
 
-				function changeUrl() {
-					$('.main-entry').each(function() {
-						if ( $(this).offset().top < $(window).scrollTop() + 100 ) { // this is x pixels from the top
-							// Visual reality check
-							$('.main-entry').css('background', 'white');
-							$(this).css('background', 'pink');
-
-							// The History API trickery
-							var newUrlPageId = $(this).attr('data-id');
-							var dataArray = {
-								'action': 'get_permalink',
-								'new_url_page_id': newUrlPageId
-							};
-							console.log('newUrlPageId ' + newUrlPageId);
-							$.ajax({
-								url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
-								type: 'POST',
-								data: dataArray,
-								success: function(permalink) {
-									// console.log('ajax return value: ' + permalink);
-									window.history.pushState(null, null, permalink);
-								}
-							});
-						}  
+				// Get the permalink for a post
+				function pushState(id) {
+					var dataArray = {
+						'action': 'get_permalink',
+						'new_url_page_id': id
+					};
+					$.ajax({
+						url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
+						type: 'POST',
+						data: dataArray,
+						success: function(permalink) {
+							// console.log('ajax return value: ' + permalink);
+							window.history.pushState(null, null, permalink);
+						}
 					});
 				}
-
-				$(window).scroll(function() { 
-					changeUrl();
-				});
 			</script>
 		<?php endif; ?>
 		<!-- Script -->
