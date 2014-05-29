@@ -33,10 +33,8 @@ $(document).ready(function() {
 
 // Infinite Scroll
 // =====================================================
-
 	$('.main').append('<div class="spinner">Loading&hellip;</div>')
-	var	pageNumber = 1;
-
+	
 	loadPostAndCount();
 
 	// Load Next Article
@@ -47,7 +45,7 @@ $(document).ready(function() {
 				pageTooShort			= $('.main').height() < $(window).height();
 
 			if (scrolledCloseToBottom) {
-				loadPost(pageNumber);
+				loadPost();
 				pageNumber++;
 			}
 		}

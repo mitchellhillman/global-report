@@ -9,30 +9,33 @@
 		// ================
 		// Ajax functions are written inline to take advantage of 
 		// PHP functions to provide contextual data
+
+			var	pageNumber = 1;
+			var pageId = $('.main-entry:first').attr('data-id');
 			
 			// Perform WP_query to get the correct next article
-			function loadPost(pageNumber) {
+			function loadPost() {
 				console.log(pageNumber);
 				$('.spinner').show();
+
+				
 
 				// Start building the data passed to the ajax function
 				var dataArray = {
 					'action': 'infinite_scroll',
+					'page_id': pageId
 				};
 
 				// Add some details
 
 				// Search Query
 				<?php if (is_search()): ?>
-					pageNumber = pageNumber + 1; // overwrite page start to compensate not being able to pass page id
+					// pageNumber++; // overwrite page start to compensate not being able to pass page id
 					var searchQuery = "<?php echo get_search_query(); ?>";
 					dataArray['search_query'] = searchQuery;
 				// Page and Date
 				<?php else: ?>
-					var pageId 		= <?php echo get_the_ID(); ?>;
-					// var pageDate 	= <?php echo get_post_time('"M d, Y"', true, get_the_ID()); ?>;
-					var pageDate 	= <?php echo get_post_time('"c"', true, get_the_ID()); ?>;
-					dataArray['page_id'] = pageId;
+					var pageDate = <?php echo get_post_time('"c"', true, get_the_ID()); ?>;
 					dataArray['page_date'] = pageDate;
 				<?php endif; ?>
 				// Category
@@ -53,7 +56,6 @@
 							$('.spinner').hide();
 							$(".main").append(html);
 							if ($('.main').height() < $(window).height()) {
-								pageNumber++;
 								loadPost(pageNumber);
 								pageNumber++;
 							}

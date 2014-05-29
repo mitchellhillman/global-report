@@ -15,21 +15,19 @@ Plugins it does support:
 
 - nuthin' tested yet!
 
-#### To Do:
-
-### priority
-- refactor JS loadPostAndCount() to accomodate for very short articles
+## To Do:
 
 ### backlog
 - a user should be able to share posts individually from the headline
-- child menu styles
 - social media links for blog. should be customizable from backend
 - resolve centered logo issue
 - complete styles on post page
-- incorporate commenting? 
+
 - mobile version
 - make favicon work
 - clean up icons and screenshots
+
+- incorporate commenting? 
 - add 'real' content
 - test against popular plugins
 - add documentation
