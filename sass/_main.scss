@@ -81,7 +81,11 @@ input {
 // ==========================================
 
 	.content {
+		color: black;
+		background: white;
+		font-family: $serif;
 		padding-top: 50px;
+		@include clearfix;
 	}
 	.scroller {
 		padding: 0;
@@ -90,70 +94,19 @@ input {
 		background-color: darken(white, 10%);
 	}
 
-
-	// Desktop Layout
-	@media all and (min-width: 784px) {
-
-		$sidebar_width: 280px;
-
-		// Content
-		.content {
-			color: black;
-			background: white;
-			font-family: $serif;
-			@include clearfix;
-			padding-top: 70px;
-		}
-
-		// Scroller
-		.scroller {
-			padding-left: $sidebar_width;
-			position: relative;
-			@include clearfix;
-		}
-		// Sidebar
-		.sidebar {
-			
-
-			position: fixed;
-			left: 0px;
-			top: 70px; // compensate for fixed nav
-
-			height: 100%;
-
-			@include display-box;
-			@include box-orient(vertical);
-			@include box-direction(reverse);
-		}
-		.sidebar-scroll-wrapper {
-			width: $sidebar_width;
-			height: 100%;
-
-			@include display-box;
-			@include box-orient(vertical);
-			@include box-direction(normal);
-			@include box-flex(1);
-		}
-		.sidebar-scroll {
-			bottom: 70px; // compensate for fixed nav
-			position: absolute;
-			top: 0px;
-			width: 100%;
-			overflow-y: scroll;
-
-			@include box-flex(1);
-		}
-
+	// Mobile display toggle
+	.sidebar {
+		display: none;
 	}
-
-
-	.admin-bar {
-		margin-top: 32px;
+	.main {
+		display: block;
+	}
+	.home {
 		.sidebar {
-			top: 102px;
+			display: block;
 		}
-		.sidebar-scroll {
-			bottom: 102px;
+		.main {
+			display: none;
 		}
 	}
 
@@ -216,9 +169,73 @@ input {
 		}
 	}
 
+	// Layout
+	@media all and (min-width: 784px) {
+
+		$sidebar_width: 280px;
+
+		// Content
+		.content {
+			padding-top: 70px;
+		}
+
+		// Scroller
+		.scroller {
+			padding-left: $sidebar_width;
+			position: relative;
+			@include clearfix;
+		}
+		// Main
+		.home .main {
+			display: block;
+		}
+		// Sidebar
+		.sidebar {
+			position: fixed;
+			left: 0px;
+			top: 70px; // compensate for fixed nav
+
+			height: 100%;
+
+			@include display-box;
+			@include box-orient(vertical);
+			@include box-direction(reverse);
+		}
+		.sidebar-scroll-wrapper {
+			width: $sidebar_width;
+			height: 100%;
+
+			@include display-box;
+			@include box-orient(vertical);
+			@include box-direction(normal);
+			@include box-flex(1);
+		}
+		.sidebar-scroll {
+			bottom: 70px; // compensate for fixed nav
+			position: absolute;
+			top: 0px;
+			width: 100%;
+			overflow-y: scroll;
+
+			@include box-flex(1);
+		}
+	}
+
 
 // Chrome
 // ==========================================
+
+	// Admin Bar
+	.admin-bar {
+		margin-top: 32px;
+		.sidebar {
+			top: 102px;
+		}
+		.sidebar-scroll {
+			bottom: 102px;
+		}
+	}
+
 	// Header
 	.header {
 		position: fixed;
@@ -280,8 +297,8 @@ input {
 		@include transition(all .2s ease);
 		&.is-open {
 			height: 40px;
-	}
 		}
+	}
 	.drawer-toggles {
 		a {
 			@include transition(background .2s ease);
@@ -377,6 +394,54 @@ input {
 		@include clearfix;
 	}
 
+@media all and (max-width: 784px) {
+
+	.admin-bar {
+		margin-top: 46px;
+	}
+
+	// Header
+	.masthead {
+		padding: 13px 50px 12px 50px;
+		a {
+			line-height: 25px;
+			height: 25px;
+		}
+		img {
+			height: 25px;
+		}
+		&.archive {
+			padding: 3px 50px 2px 50px;
+		}
+	}
+	.category-title {
+		font-size: 1em;
+		line-height: 20px;
+		height: 20px;
+	}
+	.drawer-toggles {
+		a {
+			width: 50px;
+			height: 50px;
+		}
+	}
+
+	// Menu
+	.drawer {
+		height: auto;
+		display: none;
+		&.is-open {
+			display: block;
+			height: auto;
+		}
+	}
+	.menu {
+		padding: 10px 0;
+		li {
+			width: 100%;
+		}
+	}
+}
 
 // Modules
 // ==========================================

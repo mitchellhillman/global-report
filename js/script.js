@@ -5,7 +5,8 @@ $(document).ready(function() {
 // Drawer Toggles
 // =====================================================
 	
-	$('.drawer-toggles a').click(function() {
+	$('.drawer-toggles a').click(function(e) {
+		e.preventDefault();
 		var $this = $(this),
 			$toggles = $('.drawer-toggles a'),
 			$drawers = $('.drawer'),
