@@ -11,6 +11,12 @@
 		</ul>
 		<h1><?php the_title(); ?></h1>
 
+		<ul class="share">
+			<li><a href="https://www.facebook.com/sharer/sharer.php?<?php the_permalink(); ?>">Share on Facebook</a></li>
+			<li><a href="https://twitter.com/home?status=<?php the_title(); ?> <?php the_permalink() ?> ">Share on Twitter</a></li>
+			<li><a href="https://plus.google.com/share?url=<?php the_permalink(); ?>">Share on Google+</a></li>
+		</ul>
+
 		<div class="meta">
 			<?php 
 				$email = get_the_author_meta('user_email');

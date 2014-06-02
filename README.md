@@ -19,12 +19,8 @@ Plugins it does support:
 
 ### backlog
 - a user should be able to share posts individually from the headline
-- social media links for blog. should be customizable from backend
 
 - complete styles on post page
-
-- resolve centered logo issue
-- mobile version
 
 - make favicon work
 - clean up icons and screenshots
