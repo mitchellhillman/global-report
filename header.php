@@ -51,8 +51,8 @@
 			</div><!-- /.masthead -->
 
 			<div class="drawer-toggles">
-				<a href="#" data-target="drawer-menu" class="menu">Menu</a>
-				<a href="#" data-target="drawer-search" class="search">Search</a>
+				<a href="#" data-target="drawer-menu" class="icon-menu"></a>
+				<a href="#" data-target="drawer-search" class="icon-search"></a>
 			</div>
 			
 			<div class="drawer-container">

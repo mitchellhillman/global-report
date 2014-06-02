@@ -79,55 +79,74 @@ input {
 
 // Layout
 // ==========================================
-	$sidebar_width: 320px;
 
-	// Content
 	.content {
-		color: black;
-		background: white;
-		font-family: $serif;
-		@include clearfix;
-		padding-top: 70px;
+		padding-top: 50px;
 	}
-
-	// Scroller
 	.scroller {
-		padding-left: 320px;
-		position: relative;
-		@include clearfix;
+		padding: 0;
 	}
-	// Sidebar
 	.sidebar {
 		background-color: darken(white, 10%);
-
-		position: fixed;
-		left: 0px;
-		top: 70px; // compensate for fixed nav
-
-		height: 100%;
-
-		@include display-box;
-		@include box-orient(vertical);
-		@include box-direction(reverse);
 	}
-	.sidebar-scroll-wrapper {
-		width: 320px; // Sidebar Width
-		height: 100%;
 
-		@include display-box;
-		@include box-orient(vertical);
-		@include box-direction(normal);
-		@include box-flex(1);
-	}
-	.sidebar-scroll {
-		bottom: 70px; // compensate for fixed nav
-		position: absolute;
-		top: 0px;
-		width: 100%;
-		overflow-y: scroll;
 
-		@include box-flex(1);
+	// Desktop Layout
+	@media all and (min-width: 784px) {
+
+		$sidebar_width: 280px;
+
+		// Content
+		.content {
+			color: black;
+			background: white;
+			font-family: $serif;
+			@include clearfix;
+			padding-top: 70px;
+		}
+
+		// Scroller
+		.scroller {
+			padding-left: $sidebar_width;
+			position: relative;
+			@include clearfix;
+		}
+		// Sidebar
+		.sidebar {
+			
+
+			position: fixed;
+			left: 0px;
+			top: 70px; // compensate for fixed nav
+
+			height: 100%;
+
+			@include display-box;
+			@include box-orient(vertical);
+			@include box-direction(reverse);
+		}
+		.sidebar-scroll-wrapper {
+			width: $sidebar_width;
+			height: 100%;
+
+			@include display-box;
+			@include box-orient(vertical);
+			@include box-direction(normal);
+			@include box-flex(1);
+		}
+		.sidebar-scroll {
+			bottom: 70px; // compensate for fixed nav
+			position: absolute;
+			top: 0px;
+			width: 100%;
+			overflow-y: scroll;
+
+			@include box-flex(1);
+		}
+
 	}
+
+
 	.admin-bar {
 		margin-top: 32px;
 		.sidebar {
@@ -152,9 +171,11 @@ input {
 			color: black;
 			margin: 0;
 			line-height: 1.4em;
+			margin-top: 0.5em;
 		}
 		h3 {
-			margin: 0.5em 0 0.75em;
+			margin: 0;
+			margin-top: 0.5em;
 		}
 		&:hover,
 		&.active {
@@ -203,7 +224,7 @@ input {
 		position: fixed;
 		text-align: center;
 		width: 100%;
-		z-index: 99999;
+		z-index: 500;
 		color: white;
 		img {
 			display: inline-block
@@ -223,9 +244,10 @@ input {
 			font-style: italic;
 		}
 	}
+
 	// Masthead
 	.masthead {
-		padding: 20px 0;
+		padding: 20px 70px;
 		background: $brand;
 		img {
 			height: 30px;
@@ -237,10 +259,9 @@ input {
 			height: 30px;
 		}
 		&.archive {
-			padding: 7px 0 3px 0;
+			padding: 7px 70px 3px 70px;
 		}
 	}
-
 	.category-title {
 		margin: 0;
 		line-height: 30px;
@@ -259,17 +280,28 @@ input {
 		@include transition(all .2s ease);
 		&.is-open {
 			height: 40px;
-		}
 	}
+		}
 	.drawer-toggles {
 		a {
-			@include transition(all .2s ease);
+			@include transition(background .2s ease);
 			display: block;
 			width: 70px;
 			height: 70px;
-			line-height: 70px;
+			// line-height: 70px;
 			position: absolute;
 			top: 0;
+			&:before {
+				// content: '';
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -10px;
+				margin-top: -12px;
+				font-size: 23px;
+				color: white;
+			}
 			&:hover {
 				background: rgba(0,0,0,0.3);
 			}
@@ -277,10 +309,10 @@ input {
 				background: black;
 			}
 		}
-		.menu {
+		.icon-menu {
 			right: 0;
 		}
-		.search {
+		.icon-search {
 			left: 0;
 		}
 	}

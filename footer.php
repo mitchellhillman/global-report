@@ -15,10 +15,7 @@
 			
 			// Perform WP_query to get the correct next article
 			function loadPost() {
-				console.log(pageNumber);
 				$('.spinner').show();
-
-				
 
 				// Start building the data passed to the ajax function
 				var dataArray = {

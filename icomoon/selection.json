@@ -1,0 +1,73 @@
+{
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M1024 905.216l-348.16-348.16-28.672 28.672-49.152-53.248c98.304-131.072 90.112-315.392-28.672-434.176-131.072-131.072-339.968-131.072-471.040 0-131.072 131.072-131.072 339.968 0 471.040 118.784 114.688 303.104 126.976 434.176 28.672l53.248 53.248-28.672 28.672 348.16 348.16 118.784-122.88zM159.744 503.808c-94.208-94.208-94.208-245.76 0-339.968 94.208-94.208 245.76-94.208 339.968 0 94.208 94.208 94.208 245.76 0 339.968-90.112 94.208-245.76 94.208-339.968 0z"
+				],
+				"grid": 0,
+				"tags": [
+					"search"
+				]
+			},
+			"properties": {
+				"order": 2,
+				"id": 1,
+				"prevSize": 23,
+				"code": 58880,
+				"name": "search",
+				"ligatures": ""
+			},
+			"setIdx": 0,
+			"iconIdx": 0
+		},
+		{
+			"icon": {
+				"paths": [
+					"M0 0h1157.565v133.565h-1157.565v-133.565z",
+					"M0 445.217h1157.565v133.565h-1157.565v-133.565z",
+					"M0 890.435h1157.565v133.565h-1157.565v-133.565z"
+				],
+				"width": 1158,
+				"grid": 0,
+				"tags": [
+					"menu"
+				]
+			},
+			"properties": {
+				"order": 1,
+				"id": 0,
+				"prevSize": 23,
+				"code": 58881,
+				"name": "menu",
+				"ligatures": ""
+			},
+			"setIdx": 0,
+			"iconIdx": 1
+		}
+	],
+	"height": 1024,
+	"metadata": {
+		"name": "icomoon"
+	},
+	"preferences": {
+		"showGlyphs": true,
+		"showQuickUse": true,
+		"fontPref": {
+			"prefix": "icon-",
+			"metadata": {
+				"fontFamily": "icomoon"
+			},
+			"metrics": {
+				"emSize": 512,
+				"baseline": 6.25,
+				"whitespace": 50
+			}
+		},
+		"imagePref": {},
+		"historySize": 100,
+		"showCodes": true,
+		"search": ""
+	}
+}

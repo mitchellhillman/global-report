@@ -79,7 +79,7 @@ $(document).ready(function() {
 	});
 
 
-// Kayboard Controls
+// Keyboard Controls
 // =====================================================
 	$('body').keyup(function(e){
 		// ESC : Close Menus
