@@ -2,36 +2,28 @@ $(document).ready(function() {
 
 	$('body').addClass('js'); // Browser has JS test
 
-// Drawer Toggles
+// Search
 // =====================================================
-	
-	$('.drawer-toggles a').click(function(e) {
+	$('.icon-search').click(function(e) {
 		e.preventDefault();
-		var $this = $(this),
-			$toggles = $('.drawer-toggles a'),
-			$drawers = $('.drawer'),
-			$target = $('.' + $this.attr('data-target'));
-
-		// Toggle the drawers
-		if ($this.hasClass('is-active')) {
-			$toggles.removeClass('is-active');
-			$drawers.removeClass('is-open');
-		} else {
-			$toggles.removeClass('is-active');
-			$drawers.removeClass('is-open');
-			$this.addClass('is-active');
-			$target.addClass('is-open');
-		}
-
-		// Clear search value
-		$('.searchform input[type="text"]').val('');
-
-		// Focus the search area
-		if ($this.hasClass('search')) {
-			$('.searchform input[type="text"]').focus().val('');
-		} 
+		$('.icon-menu').removeClass('is-active');
+		$('.menu').removeClass('is-open');
+		$(this).toggleClass('is-active');
+		$('.searchform').toggleClass('is-open');
+		$('.searchform input[type="text"]').focus().val('');
 	});
 
+// Menu
+// =====================================================
+
+	$('.icon-menu').click(function(e) {
+		e.preventDefault();
+		$('.icon-search').removeClass('is-active');
+		$('.searchform').removeClass('is-open');
+		$(this).toggleClass('is-active');
+		$('.menu').toggleClass('is-open');
+	});
+	
 // Infinite Scroll
 // =====================================================
 	$('.main').append('<div class="spinner">Loading&hellip;</div>')
@@ -86,8 +78,8 @@ $(document).ready(function() {
 		// ESC : Close Menus
 		if (e.keyCode == 27) {
 			e.preventDefault();
-			$('.drawer').removeClass('is-open');
-			$('.drawer-toggles a').removeClass('is-active');
+			$('.searchform').removeClass('is-open');
+			$('.tool-menu a').removeClass('is-active');
 		}
 		// Arrown Down : Load Article
 		if (e.keyCode == 40) {

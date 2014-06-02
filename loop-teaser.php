@@ -17,7 +17,11 @@
 			
 <div class="sidebar-entry" data-id="<?php echo get_the_ID(); ?>" id="post-<?php echo get_the_ID();; ?>">
 	<?php if ($flag == 1): ?>
-		<?php the_post_thumbnail(); ?>
+		<div class="post-thumbnail">
+			<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+				<?php the_post_thumbnail(); ?>
+			</a>
+		</div>
 	<?php endif ?>
 	<div class="entry-content">
 		<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">

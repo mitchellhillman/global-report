@@ -20,6 +20,10 @@
 		<link rel="apple-touch-icon-precomposed" href="icon.png" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+		<!--[if lt IE 9]>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+
 		<?php wp_head(); ?>
 
 		<!-- Custom Theme Colors -->
@@ -30,8 +34,8 @@
 			a {
 				color: <?php echo get_theme_mod('link_color'); ?>;
 			}
-			.current-menu-item a,
-			.current_page_item a  {
+			.current-menu-item > a,
+			.current_page_item > a  {
 				color: <?php echo get_theme_mod('header_color'); ?>;
 			}
 		</style>
@@ -45,24 +49,30 @@
 				<?php else: ?>
 					<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( $name ); ?></a></h1>
 				<?php endif ?>
-				<?php if (is_archive()): ?>
-					<p class="category-title"><?php single_cat_title( '', true ) ?></p>
-				<?php endif ?>
-			</div><!-- /.masthead -->
 
-			<div class="drawer-toggles">
-				<a href="#" data-target="drawer-menu" class="icon-menu"></a>
-				<a href="#" data-target="drawer-search" class="icon-search"></a>
+
+				<ul class="tool-menu">
+					<li class="search">
+						<a href="#" class="icon-search"></a>
+						<div class="searchform-desktop">
+							<?php get_search_form(); ?>
+						</div>
+					</li class="menu">
+					<li>
+						<a href="#menu" class="icon-menu"></a>
+					</li>
+				</ul><!-- /.tool -->
+			</div><!-- /.masthead -->
+			<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+			<div class="searchform-mobile">
+				<?php get_search_form(); ?>
 			</div>
-			
-			<div class="drawer-container">
-				<div class="drawer drawer-menu">
-					<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
-				</div>
-				<div class="drawer drawer-search">
-					<?php get_search_form(); ?>
-				</div>
-			</div>
+			<?php if (is_archive()): ?>
+				<div class="header-message">
+					<p>Now reading: <strong><?php single_cat_title( '', true ) ?></strong></p>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="icon-close"></a>
+				</div><!-- /.category-title -->
+			<?php endif ?>
 		</div><!-- /.header -->
 
 		<div class="content">

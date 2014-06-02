@@ -1,90 +1,96 @@
-body {
-	font-family: sans-serif;
-	font-size: 16px;
-	font-family: $sans;
-	background: white;
-	color: black;
-	line-height: 1.5em;
-}
-img {
-	width: auto;
-	height: auto;
-	max-width: 100%;
-	display: block;
-}
-a {
-	color: $link;
-	text-decoration: none;
-	&:hover {
+	body {
+		font-family: sans-serif;
+		font-size: 16px;
+		font-family: $sans;
+		background: white;
 		color: black;
-		text-decoration: underline;
+		line-height: 1.5em;
 	}
-}
-strong {
-	font-weight: 700;
-}
-em {
-	font-style: italic;
-}
-h1 {
-	font-size: 2em;
-	font-weight: 700;
-	font-family: $sans;
-	margin: 0.1em 0 0.5em 0;
-	line-height: 1.2em;
-	padding-bottom: 0.25em;
-	border-bottom: 1px solid black;
+	img {
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		display: block;
+	}
 	a {
+		color: $link;
 		text-decoration: none;
-		color: black;
 		&:hover {
+			color: black;
+			text-decoration: underline;
+		}
+	}
+	strong {
+		font-weight: 700;
+	}
+	em {
+		font-style: italic;
+	}
+	h1 {
+		font-size: 2em;
+		font-weight: 700;
+		font-family: $sans;
+		margin: 0.1em 0 0.5em 0;
+		line-height: 1.2em;
+		padding-bottom: 0.25em;
+		border-bottom: 1px solid black;
+		a {
+			text-decoration: none;
+			color: black;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	h2,
+	h3 {
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-family: $sans;
+		font-weight: 700;
+		line-height: 1.2em;
+		a {
 			text-decoration: none;
 		}
 	}
-}
-h2,
-h3 {
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	font-family: $sans;
-	font-weight: 700;
-	line-height: 1.2em;
-	a {
-		text-decoration: none;
+	p {
+		margin: 0.75em 0;
 	}
-}
-p {
-	margin: 0.75em 0;
-}
-blockquote {
-	margin-left: 1em;
-	padding-left: 0.5em;
-	font-style: italic;
-	border-left: 10px solid darken(white, 10%);
-}
-input {
-	-webkit-appearance:none;
-	@include border-radius(0);
-	border: 0;
-	background: white;
-	display: block;
-	font-family: $sans;
-	font-size: 16px;
-	outline: none;
-	&[type="text"] {
-		width:100%;
-		color: darken(white, 70%);
+	blockquote {
+		margin-left: 1em;
+		padding-left: 0.5em;
+		font-style: italic;
+		border-left: 10px solid darken(white, 10%);
 	}
-}
+	input {
+		-webkit-appearance:none;
+		@include border-radius(0);
+		border: 0;
+		background: white;
+		display: block;
+		font-family: $sans;
+		font-size: 16px;
+		outline: none;
+		&[type="text"] {
+			width:100%;
+			color: darken(white, 70%);
+		}
+	}
+	.screen-reader-text {
+		display: none;
+	}
 
 // Layout
 // ==========================================
 
+	$header_height: 40px;
+	$sidebar_width: 280px;
+	
 	.content {
 		color: black;
 		background: white;
 		font-family: $serif;
-		padding-top: 50px;
+		padding-top: $header_height;
 		@include clearfix;
 	}
 	.scroller {
@@ -138,6 +144,7 @@ input {
 			padding: 1em 0.75em;
 		}
 	}
+
 	// Main Entry
 	.main-entry {
 		max-width: 1080px;
@@ -169,279 +176,214 @@ input {
 		}
 	}
 
-	// Layout
-	@media all and (min-width: 784px) {
-
-		$sidebar_width: 280px;
-
-		// Content
-		.content {
-			padding-top: 70px;
-		}
-
-		// Scroller
-		.scroller {
-			padding-left: $sidebar_width;
-			position: relative;
-			@include clearfix;
-		}
-		// Main
-		.home .main {
-			display: block;
-		}
-		// Sidebar
-		.sidebar {
-			position: fixed;
-			left: 0px;
-			top: 70px; // compensate for fixed nav
-
-			height: 100%;
-
-			@include display-box;
-			@include box-orient(vertical);
-			@include box-direction(reverse);
-		}
-		.sidebar-scroll-wrapper {
-			width: $sidebar_width;
-			height: 100%;
-
-			@include display-box;
-			@include box-orient(vertical);
-			@include box-direction(normal);
-			@include box-flex(1);
-		}
-		.sidebar-scroll {
-			bottom: 70px; // compensate for fixed nav
-			position: absolute;
-			top: 0px;
-			width: 100%;
-			overflow-y: scroll;
-
-			@include box-flex(1);
-		}
-	}
-
-
 // Chrome
 // ==========================================
-
-	// Admin Bar
-	.admin-bar {
-		margin-top: 32px;
-		.sidebar {
-			top: 102px;
-		}
-		.sidebar-scroll {
-			bottom: 102px;
-		}
-	}
-
+	
 	// Header
 	.header {
 		position: fixed;
-		text-align: center;
-		width: 100%;
 		z-index: 500;
+		width: 100%;
 		color: white;
-		img {
-			display: inline-block
-		}
-		a {
-			color: white;
-			text-decoration: none;
-		}
-		h1 {
-			border: 0;
-			margin: 0;
-			padding: 0;
-			font-size: 2em;
-			line-height: 30px;
-			font-weight: 800;
-			text-transform: uppercase;
-			font-style: italic;
-		}
+		background: black;
+		// background: rgba(0,0,0,0.9);
 	}
 
 	// Masthead
 	.masthead {
-		padding: 20px 70px;
 		background: $brand;
-		img {
-			height: 30px;
-			display: inline-block;
-		}
-		a {
-			display: block;
-			line-height: 30px;
-			height: 30px;
-		}
-		&.archive {
-			padding: 7px 70px 3px 70px;
-		}
-	}
-	.category-title {
-		margin: 0;
-		line-height: 30px;
-		height: 30px;
-		font-weight: 800;
-		font-style: italic;
-	}
-	// Drawers
-	.drawer-container {
-		background: black;
+		position: relative;
+		padding-right: $header_height * 2;
+		padding-left: 10px;
 		@include clearfix;
-	}
-	.drawer {
-		height: 0;
-		overflow: hidden;
-		@include transition(all .2s ease);
-		&.is-open {
-			height: 40px;
+		h1,
+		img {
+		}
+		img {
+			float: left;
+			margin: 5px 0;
+			height: $header_height - 10px;
+			max-width: none;
+			width: auto;
+		}
+		h1 {
+			width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			// text-overflow: ellipsis;
+
+			border: 0;
+			margin: 0;
+			padding: 0;
+			font-size: 32px;
+			line-height: $header_height;
+			font-weight: 800;
+			text-transform: uppercase;
+			font-style: italic;
+		}
+		a {
+			display: block;
+			color: white;
+			text-decoration: none;
 		}
 	}
-	.drawer-toggles {
+	.header-message {
+		font-size: 0.875em;
+		padding-left: 10px;
+		padding-right: $header_height;
+		position: relative;
+		p {
+			margin: 0;
+			line-height: $header_height;
+		}
 		a {
-			@include transition(background .2s ease);
+			color: white;
 			display: block;
-			width: 70px;
-			height: 70px;
-			// line-height: 70px;
 			position: absolute;
 			top: 0;
+			right: 0;
+			width: $header_height;
+			height: $header_height;
+			color: darken(white, 60%);
 			&:before {
-				// content: '';
 				display: block;
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				margin-left: -10px;
-				margin-top: -12px;
-				font-size: 23px;
-				color: white;
+				margin-left: -5px;
+				margin-top: -5px;
+				font-size: 9px;
 			}
 			&:hover {
+				color: white;
+			}
+
+		}
+	}
+
+	// Tool Menu
+	.tool-menu {
+		position: absolute;
+		top: 0;
+		right: 0;
+		li {
+			float: left;
+		}
+		a {
+			display: block;
+			width: $header_height;
+			height: $header_height;
+			position: relative;
+			&:hover {
+				background: black;
 				background: rgba(0,0,0,0.3);
 			}
 			&.is-active {
 				background: black;
 			}
-		}
-		.icon-menu {
-			right: 0;
-		}
-		.icon-search {
-			left: 0;
+			&:before {
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -9px;
+				margin-top: -9px;
+				font-size: 18px;
+				color: white;
+			}
 		}
 	}
+	.icon-back {
+		display: none;
+	}
+
 	// Menu
+	.icon-menu {
+		float: right;
+		&.is-active {
+			&:before {
+				content: '\e602';
+			}
+		}
+	}
 	.menu {
-		@include clearfix;
+		display: none;
+		font-weight: 800;
+		font-style: italic;
+		&.is-open {
+			display: block;
+		}
 		li {
-			float: left;
+			width: 100%;
+			border-top: 1px solid darken(white, 90%);
+			&:first-child {
+				border: 0;
+			}
 		}
 		a {
-			font-weight: 800;
-			font-style: italic;
+			padding: 0 10px;
 			display: block;
-			height: 40px;
-			line-height: 40px;
-			padding: 0 1em;
+			line-height: $header_height;
+			color: white;
+			text-decoration: none;
 			&:hover {
 				background: darken(white, 90%);
 			}
 		}
 		ul {
-			ul {
-				display: none;	
+			a {
+				color: darken(white, 60%);
+				&:hover {
+					color: white;
+				}
 			}
+			font-weight: normal;
+			margin-left: 10px;
+			border-left: 1px solid darken(white, 90%);
+			padding-left: 10px;
 		}
 	}
-	.current-menu-item,
-	.current_page_item {
-		a {
-			color: $brand;
-		}
-	}
+
 	// Search
+	.searchform-mobile {
+		display: none;
+	}
+	.searchform-desktop {
+		display: block;
+		float: right;
+	}
+	.icon-search {
+		@extend .icon-search;
+		float: right;
+	}
 	.searchform {
-		position: relative;
-		label {
-			display: none;
-		}
+		width: 0;
+		@include transition(width .5s ease);
+		float: right;
+		position: static;
+		@include clearfix;
 		input[type="text"] {
-			padding: 0 1em;
-			line-height: 40px;
-			height: 40px;
-			background: darken(white, 90%);
+			width: 100%;
+			height: $header_height;
+			background: black;
+			background: rgba(0,0,0,0.2);
 			color: white;
-			font-weight: 800;
-			font-style: italic;
+			text-indent: 0.5em;
+			padding: 0;
 		}
 		input[type="submit"] {
 			display: none;
 		}
-	}
-
-	// Footer
-	.footer {
-		border-top: 1px solid darken(white, 20%);
-		// padding: 0 1em;
-		font-size: 0.875em;
-		font-weight: 800;
-		font-style: italic;
-		color: darken(white, 20%);
-		font-family: $sans;
-		@include clearfix;
-	}
-
-@media all and (max-width: 784px) {
-
-	.admin-bar {
-		margin-top: 46px;
-	}
-
-	// Header
-	.masthead {
-		padding: 13px 50px 12px 50px;
-		a {
-			line-height: 25px;
-			height: 25px;
-		}
-		img {
-			height: 25px;
-		}
-		&.archive {
-			padding: 3px 50px 2px 50px;
-		}
-	}
-	.category-title {
-		font-size: 1em;
-		line-height: 20px;
-		height: 20px;
-	}
-	.drawer-toggles {
-		a {
-			width: 50px;
-			height: 50px;
-		}
-	}
-
-	// Menu
-	.drawer {
-		height: auto;
-		display: none;
 		&.is-open {
-			display: block;
-			height: auto;
+			@include transition(width .5s ease);
+			width: 200px;
 		}
 	}
-	.menu {
-		padding: 10px 0;
-		li {
-			width: 100%;
-		}
+
+	// Admin Bar
+	#wpadminbar {
+		display: none;
 	}
-}
 
 // Modules
 // ==========================================

@@ -1,1 +1,93 @@
 
+
+// Desktop
+@media all and (min-width: 784px) {
+	// Admin Bar
+	.admin-bar {
+		margin-top: 32px;
+		.sidebar {
+			top: $header_height + 32px;
+		}
+		.sidebar-scroll {
+			bottom: $header_height + 32px;
+		}
+	}
+	#wpadminbar {
+		display: block;
+	}
+
+	// Content
+	.content {
+		padding-top: $header_height;
+	}
+
+	// Scroller
+	.scroller {
+		padding-left: $sidebar_width;
+		position: relative;
+		@include clearfix;
+	}
+
+	// Main
+	.home .main {
+		display: block;
+	}
+
+	// Sidebar
+	.sidebar {
+		position: fixed;
+		left: 0px;
+		top: $header_height; // compensate for fixed nav
+
+		height: 100%;
+
+		@include display-box;
+		@include box-orient(vertical);
+		@include box-direction(reverse);
+	}
+	.sidebar-scroll-wrapper {
+		width: $sidebar_width;
+		height: 100%;
+
+		@include display-box;
+		@include box-orient(vertical);
+		@include box-direction(normal);
+		@include box-flex(1);
+	}
+	.sidebar-scroll {
+		bottom: $header_height; // compensate for fixed nav
+		position: absolute;
+		top: 0px;
+		width: 100%;
+		overflow-y: scroll;
+
+		@include box-flex(1);
+	}
+	.sidebar-entry {
+		.post-thumbnail {
+			display: none;
+		}
+	}
+}
+
+
+// Mobile
+@media all and (max-width: 500px) {
+	.searchform-mobile {
+		display: block;
+	}
+	.searchform-desktop {
+		display: none;
+	}
+	.searchform {
+		display: none;
+		width: 100%;
+		background: black;
+		background: rgba(0,0,0,0.9);
+		display: none;
+		&.is-open {
+			display: block;
+			width: 100%;
+		}
+	}
+}
