@@ -12,21 +12,23 @@
 		<h1><?php the_title(); ?></h1>
 
 		<ul class="share">
-			<li><a href="https://www.facebook.com/sharer/sharer.php?<?php the_permalink(); ?>">Share on Facebook</a></li>
-			<li><a href="https://twitter.com/home?status=<?php the_title(); ?> <?php the_permalink() ?> ">Share on Twitter</a></li>
-			<li><a href="https://plus.google.com/share?url=<?php the_permalink(); ?>">Share on Google+</a></li>
+			<li><a href="#" class="icon-share"><span class="screen-reader-text">Share: </span></a></li>
+			<li><a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?<?php the_permalink(); ?>"><span class="screen-reader-text">Share on Facebook</span></a></li>
+			<li><a class="icon-twitter" href="https://twitter.com/home?status=<?php the_title(); ?> <?php the_permalink() ?>"><span class="screen-reader-text">Share on Twitter</span></a></li>
+			<li><a class="icon-googleplus" href="https://plus.google.com/share?url=<?php the_permalink(); ?>"><span class="screen-reader-text">Share on Google+</span></a></li>
 		</ul>
 
-		<div class="meta">
-			<?php 
-				$email = get_the_author_meta('user_email');
-				$size = 60;
-				$alt = get_the_author_meta('first_name').' '.get_the_author_meta('last_name');
-			
-				if ( gr_validate_gravatar($email) ) {
-					echo get_avatar( $email, $size, $alt );
-				}
-			?>
+		<?php 
+			$email = get_the_author_meta('user_email');
+			$size = 50;
+			$alt = get_the_author_meta('first_name').' '.get_the_author_meta('last_name');
+		?>
+		<div class="meta <?php if ( gr_validate_gravatar($email) ) { echo 'has-image'; } ?>">
+			<?php if ( gr_validate_gravatar($email) ): ?>
+				<div class="author-gravatar">
+					<?php echo get_avatar( $email, $size, $alt ); ?>
+				</div><!-- /.author-gravatar -->
+			<? endif; ?>
 			<p>by <Strong><?php the_author_link(); ?></strong> on <strong><?php the_date(); ?></strong></p>
 			<p class="author-description"><?php the_author_meta('description'); ?></p>
 		</div>
@@ -43,13 +45,14 @@
 	</div>
 	<div class="column">
 	<?php endif; ?>
-
-		<?php if (has_excerpt()): ?>
-			<div class="intro">
-				<?php the_excerpt() ?>
-			</div><!-- /.intro -->	
-		<?php endif ?>
-		<?php the_content('Read more...'); ?>
+		<div class="entry-content">
+			<?php if (has_excerpt()): ?>
+				<div class="intro">
+					<?php the_excerpt() ?>
+				</div><!-- /.intro -->	
+			<?php endif ?>
+			<?php the_content('Read more...'); ?>
+		</div><!-- /.post-content --> 
 	</div><!-- /.column -->
 
 </div><!-- /.main-entry -->

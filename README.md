@@ -21,6 +21,8 @@ Plugins it does support:
 - a user should be able to share posts individually from the headline
 
 - complete styles on post page
+- adjust excerpt length on sidebar
+- consider adding date to sidebar
 
 - make favicon work
 - clean up icons and screenshots

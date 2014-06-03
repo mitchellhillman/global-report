@@ -57,7 +57,7 @@
 		margin: 0.75em 0;
 	}
 	blockquote {
-		margin-left: 1em;
+		margin-left: 20px;
 		padding-left: 0.5em;
 		font-style: italic;
 		border-left: 10px solid darken(white, 10%);
@@ -130,18 +130,18 @@
 			color: black;
 			margin: 0;
 			line-height: 1.4em;
-			margin-top: 0.5em;
+			margin-top: 10px;
 		}
 		h3 {
 			margin: 0;
-			margin-top: 0.5em;
+			margin-top: 5px;
 		}
 		&:hover,
 		&.active {
 			background: darken(white, 20%);
 		}
 		.entry-content {
-			padding: 1em 0.75em;
+			padding: 10px;
 		}
 	}
 
@@ -150,29 +150,44 @@
 		max-width: 1080px;
 		margin: 0 auto;
 		border-top: 1px solid darken(white, 10%);
-		padding: 1em 0;
+		padding: 20px 0;
 		&:first-child {
 			padding-top: 0;
 			border: 0;
+		}
+		.entry-content {
+			ul, ol {
+				margin-left: 40px;
+			}
+			ul {
+				li {
+					list-style-type: disc;
+				}
+			}
+			ol {
+				li {
+					list-style-type: decimal;
+				}
+			}
 		}
 	}
 	// Column
 	.column {
 		max-width: 600px;
-		margin: 2em auto;
-		padding: 0 2em;
+		margin: 40px auto;
+		padding: 0 20px;
 	}
 
 	// Advertisement 
 	.advertisement {
 		background: darken(white, 10%);
-		// padding: 1em 2em;
+		padding: 20px;
 		text-align: center;
 		@include clearfix;
 		font-family: $sans;
 		.column {
-			margin-top: 1em;
-			margin-bottom: 1em;
+			margin-top: 20px;
+			margin-bottom: 20px;
 		}
 	}
 
@@ -396,7 +411,7 @@
 		font-size: 0.875em;
 		li {
 			float: left;
-			margin-right: 1em;
+			margin-right: 10px;
 		}
 		color: darken(white, 50%);
 		font-weight: 700;
@@ -414,31 +429,21 @@
 		background: black;
 		color: white;
 		@include clearfix;
-		padding: 0 1em;
+		padding: 0 20px;
 		font-family: $sans;
 		font-size: 0.875em;
 	}
-	// Meta
-	.meta {
-		font-family: $sans;
-		font-size: 0.875em;
-		color: darken(white, 50%);
-	}
+	
 	// Intro
 	.intro {
 		font-weight: bold;
 		font-family: $sans;
 	}
-	// Comments
-	#respond {
-		margin: 30px;
-		padding: 30px;
-		border: 1px solid lightgrey;
-	}
+
 	// system-message
 	.system-message {
 		text-align: center;
-		margin: 2em;
+		margin: 20px;
 		font-family: $sans;
 		font-weight: 800;
 		font-style: italic;
@@ -450,12 +455,58 @@
 	}
 	.spinner {
 		display: none;
-		padding: 2em;
+		padding: 20px;
 
 		text-align: center;
 		background: white;
 		font-family: $sans;
 		font-weight: 800;
 		font-style: italic;
+	}
+	// Meta
+	.meta {
+		margin: 20px 0;
+		font-family: $sans;
+		font-size: 0.875em;
+		color: darken(white, 50%);
+		position: relative;
+		&.has-image {
+			padding-left: 70px;
+		}
+		.author-gravatar {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+	// Share
+	.share {
+		@include clearfix;
+		li {
+			float: left;
+		}
+		a {
+			display: block;
+			text-decoration: none;
+			width: 40px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			&:hover {
+				background: darken(white, 5%);
+			}
+		}
+		.icon-googleplus { color: #dd4b39; }
+		.icon-twitter { color: #55acee; }
+		.icon-facebook { color: #3B5999; }
+
+		.icon-share {
+			font-size: 19px;
+			background: darken(white, 5%);
+			color: darken(white, 50%);
+			&:hover {
+				background: darken(white, 10%);
+			}
+		}
 	}
 	
