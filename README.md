@@ -16,14 +16,16 @@ Plugins it does support:
 - nuthin' tested yet!
 
 ## To Do:
+- i18n
 
 ### backlog
 
-- incorporate commenting?
-- consider adding date to sidebar
 - bookmark icon
 - add 'real' content
 - clean up icons and screenshots
 - test against popular plugins
-- internationalize
 - add documentation
+
+## future features?
+- comments
+- date in sidebar
