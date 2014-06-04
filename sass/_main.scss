@@ -30,7 +30,7 @@
 		font-size: 2em;
 		font-weight: 700;
 		font-family: $sans;
-		margin: 0.1em 0 0.5em 0;
+		margin: 1em 0;
 		line-height: 1.2em;
 		padding-bottom: 0.25em;
 		border-bottom: 1px solid black;
@@ -49,18 +49,34 @@
 		font-family: $sans;
 		font-weight: 700;
 		line-height: 1.2em;
+		margin: 2em 0 0.5em 0;
 		a {
 			text-decoration: none;
 		}
+	}
+	h4,
+	h5,
+	h6 {
+		font-weight: bold;
+		font-family: $sans;
+		margin: 2em 0 0.5em 0;
 	}
 	p {
 		margin: 0.75em 0;
 	}
 	blockquote {
-		margin-left: 20px;
-		padding-left: 0.5em;
+		margin: 0.75em 0;
+		// margin-left: 20px;
+		padding-left: 20px;
 		font-style: italic;
 		border-left: 10px solid darken(white, 10%);
+	}
+	cite {
+		font-family: $sans;
+		font-size: 0.875em;
+		font-style: italic;
+		margin-left: 30px;
+		
 	}
 	input {
 		-webkit-appearance:none;
@@ -76,6 +92,7 @@
 			color: darken(white, 70%);
 		}
 	}
+
 	.screen-reader-text {
 		display: none;
 	}
@@ -106,6 +123,7 @@
 	}
 	.main {
 		display: block;
+		background: darken(white, 5%);
 	}
 	.home {
 		.sidebar {
@@ -140,24 +158,30 @@
 		&.active {
 			background: darken(white, 20%);
 		}
+		img {
+			width: 100%;
+			max-width: 100%;
+		}
 		.entry-content {
 			padding: 10px;
 		}
 	}
 
 	// Main Entry
-	.main-entry {
+	.main-entry,
+	.page-content {
 		max-width: 1080px;
+		background: white;
 		margin: 0 auto;
 		border-top: 1px solid darken(white, 10%);
-		padding: 20px 0;
+		padding: 40px 0;
 		&:first-child {
 			padding-top: 0;
 			border: 0;
 		}
 		.entry-content {
 			ul, ol {
-				margin-left: 40px;
+				margin: 0.75em 0 0.75em 40px;
 			}
 			ul {
 				li {
@@ -169,25 +193,43 @@
 					list-style-type: decimal;
 				}
 			}
+			img {
+				margin: 20px 0;
+				&.alignleft {
+					margin: 0 20px 20px 0;
+				}
+				&.alignright {
+					margin: 0 0 20px 20px;
+				}
+			}
+			.wp-caption-text {
+				font-family: $sans;
+				font-size: 0.875em;
+				color: darken(white, 50%);
+				line-height: 1.2em;
+				font-style: italic;
+			}
 		}
 	}
 	// Column
 	.column {
 		max-width: 600px;
-		margin: 40px auto;
+		margin: 0 auto;
 		padding: 0 20px;
 	}
 
 	// Advertisement 
 	.advertisement {
 		background: darken(white, 10%);
-		padding: 20px;
+		padding: 0;
 		text-align: center;
 		@include clearfix;
 		font-family: $sans;
-		.column {
-			margin-top: 20px;
-			margin-bottom: 20px;
+		h2 {
+			margin: 0;
+		}
+		img {
+			margin: 0 auto;
 		}
 	}
 
@@ -416,22 +458,28 @@
 		color: darken(white, 50%);
 		font-weight: 700;
 	}
+
+	// Post Title
+	.post-title {
+		margin: 0.1em 0 0 0;
+	}
+
 	// Featured Image
 	.featured-image {
-		background-color: darken(white, 5%);
-		width: 100%;
-		// max-width: 1080px;
+		margin: 40px 0;
+		background: black;
+		color: white;
+		font-family: $sans;
+		font-size: 0.875em;
+		@include clearfix;
 		img {
+			display: block;
 			width: 100%;
+			max-width: 100%;
 		}
 	}
 	.featured-image-caption {
-		background: black;
-		color: white;
-		@include clearfix;
 		padding: 0 20px;
-		font-family: $sans;
-		font-size: 0.875em;
 	}
 	
 	// Intro
@@ -454,38 +502,46 @@
 		position: relative;
 	}
 	.spinner {
-		display: none;
 		padding: 20px;
-
 		text-align: center;
-		background: white;
 		font-family: $sans;
 		font-weight: 800;
 		font-style: italic;
 	}
 	// Meta
 	.meta {
-		margin: 20px 0;
+		margin: 20px 0 40px 0;
 		font-family: $sans;
 		font-size: 0.875em;
 		color: darken(white, 50%);
 		position: relative;
+		line-height: 1.2em;
 		&.has-image {
-			padding-left: 70px;
+			padding-left: 80px;
 		}
 		.author-gravatar {
 			position: absolute;
 			top: 0;
 			left: 0;
+			width: 60px;
+			img {
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+		.author-description {
+			font-style: italic;
 		}
 	}
 	// Share
 	.share {
+		margin: 0;
 		@include clearfix;
 		li {
 			float: left;
 		}
-		a {
+		a,
+		.icon-share {
 			display: block;
 			text-decoration: none;
 			width: 40px;
@@ -504,9 +560,15 @@
 			font-size: 19px;
 			background: darken(white, 5%);
 			color: darken(white, 50%);
-			&:hover {
-				background: darken(white, 10%);
-			}
 		}
 	}
 	
+	// Footer
+	.footer {
+		border-top: 1px solid darken(white, 10%);
+		margin: 40px 0 0 0;
+		font-family: $sans;
+		font-size: 0.875em;
+		font-style: italic;
+		color: darken(white, 50%);
+	}

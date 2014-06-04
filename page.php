@@ -4,8 +4,7 @@
 // Start the Loop.
 while ( have_posts() ) : the_post(); ?>
 
-	<div class="page">
-
+	<div class="page-content">
 		<div class="column">
 			<?php the_category() ?>
 			<h1><?php the_title(); ?></h1>
@@ -26,7 +25,7 @@ while ( have_posts() ) : the_post(); ?>
 			<?php the_content(); ?>
 		</div><!-- /.column -->
 
-	</div><!-- /.page -->
+	</div><!-- /.page-content -->
 
 <?php 
 // End the Loop.

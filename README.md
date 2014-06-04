@@ -18,16 +18,12 @@ Plugins it does support:
 ## To Do:
 
 ### backlog
-- a user should be able to share posts individually from the headline
 
-- complete styles on post page
-- adjust excerpt length on sidebar
+- incorporate commenting?
 - consider adding date to sidebar
-
-- make favicon work
-- clean up icons and screenshots
-
-- incorporate commenting? 
+- add bookmark bubble / bookmark icon
 - add 'real' content
+- clean up icons and screenshots
 - test against popular plugins
+- internationalize
 - add documentation

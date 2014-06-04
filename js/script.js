@@ -32,7 +32,7 @@ $(document).ready(function() {
 
 	// Load Next Article
 	function loadPostAndCount() {
-		if (!$('body').hasClass('page') ) { // don't do this on pages
+		if ( !$('body').hasClass('page') ) {
 			var scrolledToBottom 		= $(window).scrollTop() + $(window).height() == $(document).height(),
 				scrolledCloseToBottom	= $(window).scrollTop() + $(window).height() > $(document).height() - 100,
 				pageTooShort			= $('.main').height() < $(window).height();
@@ -47,7 +47,7 @@ $(document).ready(function() {
 // Change URL
 // =====================================================
 	function changeUrl() {
-		if (!$('body').hasClass('page') ) { // don't do this on pages  
+		if ( !$('body').hasClass('page') ) {
 			var newUrlPageId = $('.menu-entry:first').attr('data-id');
 			$('.main-entry').each(function() {
 				if ( $(this).offset().top < $(window).scrollTop() + 200 ) { 

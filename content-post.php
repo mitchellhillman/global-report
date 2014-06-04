@@ -9,10 +9,10 @@
 			}
 		?>
 		</ul>
-		<h1><?php the_title(); ?></h1>
+		<h1 class="post-title"><?php the_title(); ?></h1>
 
 		<ul class="share">
-			<li><a href="#" class="icon-share"><span class="screen-reader-text">Share: </span></a></li>
+			<li><span class="icon-share"><span class="screen-reader-text">Share: </span></span></li>
 			<li><a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?<?php the_permalink(); ?>"><span class="screen-reader-text">Share on Facebook</span></a></li>
 			<li><a class="icon-twitter" href="https://twitter.com/home?status=<?php the_title(); ?> <?php the_permalink() ?>"><span class="screen-reader-text">Share on Twitter</span></a></li>
 			<li><a class="icon-googleplus" href="https://plus.google.com/share?url=<?php the_permalink(); ?>"><span class="screen-reader-text">Share on Google+</span></a></li>
@@ -20,7 +20,7 @@
 
 		<?php 
 			$email = get_the_author_meta('user_email');
-			$size = 50;
+			$size = 120;
 			$alt = get_the_author_meta('first_name').' '.get_the_author_meta('last_name');
 		?>
 		<div class="meta <?php if ( gr_validate_gravatar($email) ) { echo 'has-image'; } ?>">
@@ -51,7 +51,7 @@
 					<?php the_excerpt() ?>
 				</div><!-- /.intro -->	
 			<?php endif ?>
-			<?php the_content('Read more...'); ?>
+			<?php the_content(' more&hellip;'); ?>
 		</div><!-- /.post-content --> 
 	</div><!-- /.column -->
 
