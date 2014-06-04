@@ -10,8 +10,8 @@
 	</div><!-- /.sidebar -->
 
 	<div class="main">
-		<?php get_sidebar(); ?>
 		<?php get_template_part( 'loop' ); ?>
+		<?php get_sidebar(); ?>
 	</div><!-- /.main -->
 </div><!-- /.scroller -->
 

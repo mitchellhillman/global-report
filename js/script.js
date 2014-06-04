@@ -32,7 +32,8 @@ $(document).ready(function() {
 
 	// Load Next Article
 	function loadPostAndCount() {
-		if ( !$('body').hasClass('page') ) {
+		var is_page = $('body').hasClass('page');
+		if ( !is_page ) {
 			var scrolledToBottom 		= $(window).scrollTop() + $(window).height() == $(document).height(),
 				scrolledCloseToBottom	= $(window).scrollTop() + $(window).height() > $(document).height() - 100,
 				pageTooShort			= $('.main').height() < $(window).height();
@@ -47,7 +48,11 @@ $(document).ready(function() {
 // Change URL
 // =====================================================
 	function changeUrl() {
-		if ( !$('body').hasClass('page') ) {
+		var is_home = $('body').hasClass('home'),
+			is_mobile = $(window).width() < 784;
+
+		if ( (!is_home && is_mobile) || !is_mobile ) { // is not home on mobile
+			console.log('changeUrl');
 			var newUrlPageId = $('.menu-entry:first').attr('data-id');
 			$('.main-entry').each(function() {
 				if ( $(this).offset().top < $(window).scrollTop() + 200 ) { 

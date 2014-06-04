@@ -21,7 +21,7 @@ Plugins it does support:
 
 - incorporate commenting?
 - consider adding date to sidebar
-- add bookmark bubble / bookmark icon
+- bookmark icon
 - add 'real' content
 - clean up icons and screenshots
 - test against popular plugins
