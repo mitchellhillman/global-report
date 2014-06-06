@@ -21,8 +21,10 @@ while ( have_posts() ) : the_post(); ?>
 		</div>
 		<div class="column">
 		<?php endif; ?>
-
 			<?php the_content(); ?>
+
+			<?php get_template_part( 'comments' ); ?>
+
 		</div><!-- /.column -->
 
 	</div><!-- /.page-content -->

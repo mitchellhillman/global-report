@@ -16,7 +16,7 @@
 	if($main_posts->have_posts()) {
 		while($main_posts->have_posts()) {
 			$main_posts->the_post();
-			get_template_part( 'content', 'post' );				
+			get_template_part( 'post' );				
 		}
 	}
 	else {

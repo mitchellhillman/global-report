@@ -37,7 +37,7 @@
 		<?php the_excerpt(); ?>
 		</a>
 	</div><!-- /.entry-content -->
-</div><!-- .sidebar-entry -->
+</div><!-- /.sidebar-entry -->
 
 
 			<?php $flag++;

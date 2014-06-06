@@ -49,8 +49,6 @@
 				<?php else: ?>
 					<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( $name ); ?></a></h1>
 				<?php endif ?>
-
-
 				<ul class="tool-menu">
 					<li class="search">
 						<a href="#" class="icon-search"></a>
@@ -61,17 +59,17 @@
 					<li>
 						<a href="#menu" class="icon-menu"></a>
 					</li>
-				</ul><!-- /.tool -->
+				</ul><!-- /.tool-menu -->
 			</div><!-- /.masthead -->
 			<?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
 			<div class="searchform-mobile">
 				<?php get_search_form(); ?>
-			</div>
+			</div><!-- /.searchform-mobile -->
 			<?php if (is_archive()): ?>
 				<div class="header-message">
 					<p>Now reading: <strong><?php single_cat_title( '', true ) ?></strong></p>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="icon-close"></a>
-				</div><!-- /.category-title -->
+				</div><!-- /.header-message -->
 			<?php endif ?>
 		</div><!-- /.header -->
 

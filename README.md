@@ -1,6 +1,6 @@
 # README
 
-Global Report is a Wordpress theme by Mitchell Hillman which is inspired by the News Magazine Format of Quarz, Time Magazine and TNW. It features: 
+Global Report is a web app Wordpress theme for Magazines and Blogs. It is inspired by other news magazines such as Quartz, Time Magazine and TNW. It features:  
 
 - Infinite scroll
 - Persistant sidebar of news
@@ -9,23 +9,14 @@ Global Report is a Wordpress theme by Mitchell Hillman which is inspired by the 
 - Retina support
 - URL rewriting with AJAX requests
 
-This theme has very specific set of features and challenges and as such may not support 'typical' plugins. 
-
-Plugins it does support: 
-
-- nuthin' tested yet!
+_This theme has very specific set of features and challenges and as such may not support 'typical' plugins. This theme does not suport commenting on posts._
 
 ## To Do:
 - i18n
+- Commenting on pages
+- User customizable bookmark icon
+- Create demo content
+- Clean up logos and screenshots
+- Post to theme forest
+- Make theme forest demo
 
-### backlog
-
-- bookmark icon
-- add 'real' content
-- clean up icons and screenshots
-- test against popular plugins
-- add documentation
-
-## future features?
-- comments
-- date in sidebar
