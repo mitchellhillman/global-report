@@ -1,5 +1,20 @@
 <?php 
 
+// Validate Gravatar
+// =====================================================
+
+	function gr_validate_gravatar($email) {
+		$hash = md5(strtolower(trim($email)));
+		$uri = 'http://www.gravatar.com/avatar/' . $hash . '?d=404';
+		$headers = @get_headers($uri);
+		if (!preg_match("|200|", $headers[0])) {
+			$has_valid_avatar = FALSE;
+		} else {
+			$has_valid_avatar = TRUE;
+		}
+		return $has_valid_avatar;
+	}
+
 // Register Menus
 // =====================================================
 
@@ -98,18 +113,3 @@
 	}
 	add_action('wp_ajax_get_permalink', 'gr_get_permalink');           // for logged in user
 	add_action('wp_ajax_nopriv_get_permalink', 'gr_get_permalink');    // if user not logged in
-
-// Validate Gravatar
-// =====================================================
-
-	function gr_validate_gravatar($email) {
-		$hash = md5(strtolower(trim($email)));
-		$uri = 'http://www.gravatar.com/avatar/' . $hash . '?d=404';
-		$headers = @get_headers($uri);
-		if (!preg_match("|200|", $headers[0])) {
-			$has_valid_avatar = FALSE;
-		} else {
-			$has_valid_avatar = TRUE;
-		}
-		return $has_valid_avatar;
-	}
