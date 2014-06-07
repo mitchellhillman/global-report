@@ -77,7 +77,8 @@
 		margin-left: 30px;
 		
 	}
-	input {
+	input,
+	textarea {
 		-webkit-appearance:none;
 		@include border-radius(0);
 		border: 0;
@@ -86,10 +87,40 @@
 		font-family: $sans;
 		font-size: 16px;
 		outline: none;
+		// margin: 10px 0;
+		padding: 10px;
 		&[type="text"] {
 			width:100%;
 			color: darken(white, 70%);
 		}
+	}
+	textarea {
+		width: 100%;
+		font-size: 0.875em;
+	}
+	label {
+		font-weight: bold;
+		font-size: 0.875em;
+	}
+	input[type="submit"] {
+		font-weight: 800;
+		font-style: italic;
+		padding: 10px 20px;
+		background: darken(white, 20%);
+		cursor: pointer;
+		display: inline-block;
+		&:hover {
+			background: darken(white, 30%);
+		}
+	}
+	abbr,
+	code {
+		font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
+	}
+	code {
+		line-height: 1.1em;
+		padding: 0.2em;
+		background: white;
 	}
 
 	.screen-reader-text {
@@ -99,7 +130,8 @@
 // Layout
 // ==========================================
 
-	$header_height: 40px;
+	// $header_height: 40px;
+	$header_height: 50px;
 	$sidebar_width: 280px;
 	
 	.content {
@@ -222,8 +254,7 @@
 
 	// Advertisement 
 	.advertisement {
-		// background: darken(white, 10%);
-		padding: 0;
+		padding: 10px 0;
 		text-align: center;
 		@include clearfix;
 		font-family: $sans;
@@ -245,13 +276,14 @@
 		width: 100%;
 		color: white;
 		background: black;
-		// background: rgba(0,0,0,0.9);
+		background: rgba(30,30,30,0.9);
 	}
 
 	// Masthead
 	.masthead {
 		background: $brand;
 		position: relative;
+		// height: $header_height;
 		padding-right: $header_height * 2;
 		padding-left: 10px;
 		@include clearfix;
@@ -260,8 +292,9 @@
 		}
 		img {
 			float: left;
-			margin: 5px 0;
-			height: $header_height - 10px;
+			margin: (($header_height - 30px) / 2) 0;
+			// height: $header_height - 10px;
+			height: 30px;
 			max-width: none;
 			width: auto;
 		}
@@ -362,10 +395,14 @@
 		&.is-active {
 			&:before {
 				content: '\e602';
+				font-size: 16px;
+				margin-top: -8px;
+				margin-left: -8px;
 			}
 		}
 	}
 	.menu {
+		background: black;
 		display: none;
 		font-weight: 800;
 		font-style: italic;
@@ -422,6 +459,7 @@
 		position: static;
 		@include clearfix;
 		input[type="text"] {
+			margin: 0;
 			width: 100%;
 			height: $header_height;
 			background: black;
@@ -565,10 +603,110 @@
 		}
 	}
 	
+	// Comments
+	.comments {
+		padding: 40px;
+		background: darken(white, 5%);
+		font-family: $sans;
+		h3 {
+			margin: 0 0 20px 0;
+			strong {
+				font-weight: 800;
+				font-style: italic;
+			}
+		}
+		input[type="submit"] {
+			margin-bottom: 0;
+		}
+		ol ol {
+			padding-left: 20px;
+		}
+		ol.children {
+			position: relative;
+			&:before,
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				background: darken(white, 50%);
+			}
+			&:before {
+				height: 1px;
+				width: 10px;
+				top: 20px;
+				left: 10px;
+			}
+			&:after {
+				width: 1px;
+				height: 40px;
+				top: - 20px;
+				left: 10px;
+			}
+		}
+	}
+	.commentlist {
+		margin: 0 0 40px 0;
+	}
+	.comment-block {
+		background: white;
+		font-size: 0.875em;
+		margin: 20px 0;
+		padding: 20px;
+	}
+	.comment-notes {
+		font-size: 0.875em;
+	}
+	.comment-awaiting-moderation {
+		color: black;
+		font-weight: bold;
+		font-style: italic;
+	}
+	.comment-reply-title {
+		a {
+			text-transform: none;
+			font-weight: 800;
+			font-style: italic;
+		}
+		small {
+			a {
+				// text-transform: uppercase;
+				font-size: 0.875em;
+				float: right;
+				font-style: normal;
+				letter-spacing: 0;
+				font-weight: normal;
+			}
+		}
+	}
+	.form-allowed-tags {
+		color: darken(white, 50%);
+		font-size: 0.75em;
+		font-style: italic;
+	}
+	.logged-in-as {
+		font-size: 0.875em;
+	}
+	.logged-in-as,
+	.comment-meta {
+		color: darken(white, 50%);
+		a {
+			color: darken(white, 50%);
+			font-weight: bold;
+		}
+	}
+	.comment-actions {
+		@include clearfix;
+		a {
+			float: left;
+			margin-right: 20px;
+		}
+	}
+	.nocomments {
+		@extend .system-message;
+	}
+
 	// Footer
 	.footer {
-		border-top: 1px solid darken(white, 10%);
-		// margin: 40px 0 0 0;
 		margin: 0;
 		font-family: $sans;
 		font-size: 0.875em;

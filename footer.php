@@ -76,6 +76,7 @@
 					}
 				});
 			}
+
 		</script>
 		<!-- Script -->
 		<script src="<?php bloginfo('template_url'); ?>/js/script.js" type="text/javascript"></script>

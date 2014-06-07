@@ -23,7 +23,7 @@ while ( have_posts() ) : the_post(); ?>
 		<?php endif; ?>
 			<?php the_content(); ?>
 
-			<?php get_template_part( 'comments' ); ?>
+			<?php comments_template( '', true ); ?>
 
 		</div><!-- /.column -->
 

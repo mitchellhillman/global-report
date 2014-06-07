@@ -3,7 +3,7 @@
 // Validate Gravatar
 // =====================================================
 
-	function gr_validate_gravatar($email) {
+	function globalreport_validate_gravatar($email) {
 		$hash = md5(strtolower(trim($email)));
 		$uri = 'http://www.gravatar.com/avatar/' . $hash . '?d=404';
 		$headers = @get_headers($uri);
@@ -56,11 +56,10 @@
 	add_theme_support( 'custom-header', $defaults );
 
 
-
-// Custom Theme Colors
+// Theme Customization
 // =====================================================
 
-	function gr_customize_register( $wp_customize ) {
+	function globalreport_customize_register( $wp_customize ) {
 		// Header Color
 		$wp_customize->add_setting( 'header_color' , array(
 			'default'     => '#ed1c24',
@@ -82,13 +81,13 @@
 			'settings'   => 'link_color',
 		) ) );
 	}
-	add_action( 'customize_register', 'gr_customize_register' );
+	add_action( 'customize_register', 'globalreport_customize_register' );
 
 // Admin Bar
 // ====================================================
 
-	add_action('get_header', 'gr_filter_head');
-	function gr_filter_head() {
+	add_action('get_header', 'globalreport_filter_head');
+	function globalreport_filter_head() {
 		remove_action('wp_head', '_admin_bar_bump_cb');
 	}
 
@@ -96,20 +95,71 @@
 // ====================================================
 
 	// Infinate Paginate
-	function gr_infinitepaginate(){ 
+	function globalreport_infinitepaginate(){ 
 		get_template_part( 'loop' , 'ajax');
 		exit;
 	}
-	add_action('wp_ajax_infinite_scroll', 'gr_infinitepaginate');           // for logged in user
-	add_action('wp_ajax_nopriv_infinite_scroll', 'gr_infinitepaginate');    // if user not logged in
+	add_action('wp_ajax_infinite_scroll', 'globalreport_infinitepaginate');           // for logged in user
+	add_action('wp_ajax_nopriv_infinite_scroll', 'globalreport_infinitepaginate');    // if user not logged in
 
 	// Get Permalink
-	function gr_get_permalink(){ 
+	function globalreport_get_permalink(){ 
 		$new_url_page_id = $_POST['new_url_page_id'];
 		$new_url_page_id = get_permalink($new_url_page_id);
 		echo $new_url_page_id;
 
 		die();
 	}
-	add_action('wp_ajax_get_permalink', 'gr_get_permalink');           // for logged in user
-	add_action('wp_ajax_nopriv_get_permalink', 'gr_get_permalink');    // if user not logged in
+	add_action('wp_ajax_get_permalink', 'globalreport_get_permalink');           // for logged in user
+	add_action('wp_ajax_nopriv_get_permalink', 'globalreport_get_permalink');    // if user not logged in
+
+// Comments
+// ====================================================
+
+	if ( ! function_exists( 'globalreport_comment' ) ) :
+	function globalreport_comment( $comment, $args, $depth ) {
+		$GLOBALS['comment'] = $comment;
+		switch ( $comment->comment_type ) :
+			case 'pingback' :
+			case 'trackback' :
+			// Display trackbacks differently than normal comments.
+		?>
+		<li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+			<p><?php _e( 'Pingback:', 'globalreport' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( '(Edit)', 'globalreport' ), '<span class="edit-link">', '</span>' ); ?></p>
+		<?php
+				break;
+			default :
+			// Proceed with normal comments.
+			global $post;
+		?>
+		<li <?php comment_class(); ?>>
+			<div id="comment-<?php comment_ID(); ?>" class="comment-block">
+				<div class="comment-meta comment-author vcard">
+					<?php
+						printf( '<b class="fn">%1$s</b> %2$s',
+							get_comment_author_link(),
+							// If current post author is also comment author, make it known visually.
+							( $comment->user_id === $post->post_author ) ? '<span>' . __( 'Post author', 'globalreport' ) . '</span>' : ''
+						);
+					?>
+				</div><!-- .comment-meta -->
+
+				<?php if ( '0' == $comment->comment_approved ) : ?>
+					<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'globalreport' ); ?></p>
+				<?php endif; ?>
+
+				<section class="comment-content comment">
+					<?php comment_text(); ?>
+				</section><!-- .comment-content -->
+
+				<div class="comment-actions">
+					<?php edit_comment_link( __( 'Edit', 'globalreport' ), '<p class="edit-link">', '</p>' ); ?>
+					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply', 'globalreport' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+				</div><!-- .reply -->
+			</div><!-- /.comment -->
+		</li>
+		<?php
+			break;
+		endswitch; // end comment_type check
+	}
+	endif;

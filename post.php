@@ -23,8 +23,8 @@
 			$size = 120;
 			$alt = get_the_author_meta('first_name').' '.get_the_author_meta('last_name');
 		?>
-		<div class="meta <?php if ( gr_validate_gravatar($email) ) { echo 'has-image'; } ?>">
-			<?php if ( gr_validate_gravatar($email) ): ?>
+		<div class="meta <?php if ( globalreport_validate_gravatar($email) ) { echo 'has-image'; } ?>">
+			<?php if ( globalreport_validate_gravatar($email) ): ?>
 				<div class="author-gravatar">
 					<?php echo get_avatar( $email, $size, $alt ); ?>
 				</div><!-- /.author-gravatar -->
@@ -56,5 +56,4 @@
 			<?php the_content(' more &hellip;'); ?>
 		</div><!-- /.post-content --> 
 	</div><!-- /.column -->
-
 </div><!-- /.main-entry -->

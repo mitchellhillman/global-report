@@ -52,7 +52,6 @@ $(document).ready(function() {
 			is_mobile = $(window).width() < 784;
 
 		if ( (!is_home && is_mobile) || !is_mobile ) { // is not home on mobile
-			console.log('changeUrl');
 			var newUrlPageId = $('.menu-entry:first').attr('data-id');
 			$('.main-entry').each(function() {
 				if ( $(this).offset().top < $(window).scrollTop() + 200 ) { 
@@ -75,7 +74,6 @@ $(document).ready(function() {
 		loadPostAndCount();
 		changeUrl();
 	});
-
 
 // Keyboard Controls
 // =====================================================
