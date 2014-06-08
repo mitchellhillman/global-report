@@ -94,6 +94,14 @@
 // Ajax
 // ====================================================
 
+	// Load Sidebar
+	function globalreport_load_sidebar(){ 
+		get_template_part( 'loop' , 'ajaxsidebar');
+		exit;
+	}
+	add_action('wp_ajax_load_sidebar', 'globalreport_load_sidebar');           // for logged in user
+	add_action('wp_ajax_nopriv_load_sidebar', 'globalreport_load_sidebar');    // if user not logged in
+
 	// Infinate Paginate
 	function globalreport_infinitepaginate(){ 
 		get_template_part( 'loop' , 'ajax');

@@ -26,7 +26,10 @@ $(document).ready(function() {
 	
 // Infinite Scroll
 // =====================================================
-	$('.main').append('<div class="spinner">Loading&hellip;</div>')
+
+	// Create the spinners
+	$('.main').append('<div class="main-spinner spinner">Loading&hellip;</div>')
+	$('.sidebar-scroll').append('<div class="sidebar-spinner spinner">Loading&hellip;</div>')
 	
 	loadPostAndCount();
 
@@ -44,6 +47,16 @@ $(document).ready(function() {
 			}
 		}
 	}
+
+	// Load sidebar articles
+	$('.load-sidebar').click(function(e) {
+		e.preventDefault();
+		console.log(sidebarPageNumber);
+		loadSidebar();
+		sidebarPageNumber++;
+	});
+
+
 
 // Change URL
 // =====================================================

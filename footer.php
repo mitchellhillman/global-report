@@ -13,9 +13,9 @@
 			var	pageNumber = 1;
 			var pageId = $('.main-entry:first').attr('data-id');
 			
-			// Perform WP_query to get the correct next article
+			// Get next Main Article
 			function loadPost() {
-				$('.spinner').show();
+				$('.main-spinner').show();
 
 				// Start building the data passed to the ajax function
 				var dataArray = {
@@ -50,12 +50,35 @@
 						type:'POST',
 						data: dataArray, 
 						success: function(html){
-							$('.spinner').hide();
+							$('.main-spinner').hide();
 							$(".main").append(html);
 							if ($('.main').height() < $(window).height()) {
 								loadPost(pageNumber);
 								pageNumber++;
 							}
+						}
+				});
+			}
+
+			// Get next Sidebar articles
+			var	sidebarPageNumber = 2;
+			function loadSidebar() {
+				$('.sidebar-spinner').show();
+
+				// Start building the data passed to the ajax function
+				var dataArray = {
+					'action': 'load_sidebar',
+					'sidebar_no': sidebarPageNumber
+				};
+
+				// Make the call
+				$.ajax({
+						url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
+						type:'POST',
+						data: dataArray, 
+						success: function(html){
+							$('.sidebar-spinner').hide();
+							$(".sidebar-list").append(html);
 						}
 				});
 			}

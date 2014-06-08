@@ -4,7 +4,12 @@
 	<div class="sidebar">
 		<div class="sidebar-scroll-wrapper">
 			<div class="sidebar-scroll">
-				<?php get_template_part( 'loop', 'teaser' );   ?>
+				<div class="sidebar-list">
+					<?php get_template_part( 'loop', 'teaser' );   ?>
+				</div>
+
+				<a href="" class="load-sidebar">More</a>
+
 			</div><!-- /.sidebar-scroll --> 
 		</div><!-- /.sidebar-scroll-wrapper -->
 	</div><!-- /.sidebar -->

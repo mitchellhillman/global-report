@@ -6,8 +6,6 @@
 	$cat_id 		= $_POST['cat_id'];
 	$search_query 	= $_POST['search_query'];
 
-	echo $post_date;
-
 	$temp_post = $post; // Storing the object temporarily
 
 	$args = array(

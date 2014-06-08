@@ -226,12 +226,7 @@
 			}
 			img {
 				margin: 20px 0;
-				&.alignleft {
-					margin: 0 20px 20px 0;
-				}
-				&.alignright {
-					margin: 0 0 20px 20px;
-				}
+				max-width: 100%;
 			}
 			.wp-caption-text {
 				font-family: $sans;
@@ -242,6 +237,26 @@
 			}
 		}
 	}
+
+	// Image alignment
+	.wp-caption {
+		max-width: 100%;
+	}
+	.alignleft {
+		max-width: 100%;
+		float: left;
+		margin: 0 20px 20px 0;
+	}
+	.alignright {
+		max-width: 100%;
+		float: right;
+		margin: 0 0 20px 20px;
+	}
+	.size-full {
+		width: 100%;
+		max-width: 100%;
+	}
+
 	.page-content {
 		padding: 0 0 40px 0;
 	}
@@ -482,7 +497,7 @@
 		display: none;
 	}
 
-// Modules
+// Post
 // ==========================================
 	
 	// Post Categories
@@ -528,29 +543,9 @@
 		font-family: $sans;
 	}
 
-	// system-message
-	.system-message {
-		text-align: center;
-		margin: 20px;
-		font-family: $sans;
-		font-weight: 800;
-		font-style: italic;
-		color: darken(white, 50%);
-	}
-	// Spinner
-	.main {
-		position: relative;
-	}
-	.spinner {
-		padding: 20px;
-		text-align: center;
-		font-family: $sans;
-		font-weight: 800;
-		font-style: italic;
-	}
 	// Meta
 	.meta {
-		margin: 20px 0 40px 0;
+		margin: 20px 0;
 		font-family: $sans;
 		font-size: 0.875em;
 		color: darken(white, 50%);
@@ -571,6 +566,7 @@
 		}
 		.author-description {
 			font-style: italic;
+			margin-bottom: 0;
 		}
 	}
 	// Share
@@ -602,8 +598,53 @@
 			color: darken(white, 50%);
 		}
 	}
-	
-	// Comments
+
+// System
+// ==========================================
+
+	// Spinner
+	.main {
+		position: relative;
+	}
+	.spinner {
+		display: none;
+		padding: 20px;
+		text-align: center;
+		font-family: $sans;
+		font-weight: 800;
+		font-style: italic;
+	}
+
+	// system-message
+	.system-message {
+		text-align: center;
+		margin: 20px;
+		font-family: $sans;
+		font-weight: 800;
+		font-style: italic;
+		color: darken(white, 50%);
+	}
+
+	// Load Sidebar
+	.load-sidebar {
+		background: darken(white, 20%);
+		padding: 10px;
+		display: block;
+		margin: 10px;
+		text-align: center;
+		font-weight: 800;
+		font-style: italic;
+		font-family: $sans;
+		color: black;
+		&:hover {
+			background: darken(white, 30%);
+			text-decoration: none;
+		}
+	}
+
+
+// Comments
+// ==========================================
 	.comments {
 		padding: 40px;
 		background: darken(white, 5%);
@@ -705,7 +746,8 @@
 		@extend .system-message;
 	}
 
-	// Footer
+// Footer
+// ==========================================
 	.footer {
 		margin: 0;
 		font-family: $sans;
