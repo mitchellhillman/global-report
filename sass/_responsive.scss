@@ -68,6 +68,14 @@
 
 // Mobile
 @media all and (max-width: 500px) {
+	.masthead {
+		.logo-small {
+			display: block;
+		}
+		.logo-fullsize {
+			display: none;
+		}
+	}
 	.searchform-mobile {
 		display: block;
 	}
@@ -87,5 +95,11 @@
 	}
 	.advertisement {
 		padding: 0;
+	}
+	.column {
+		padding: 0 10px;
+	}
+	.main-entry {
+		padding: 30px 0;
 	}
 }

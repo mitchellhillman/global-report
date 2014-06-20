@@ -307,9 +307,8 @@
 		}
 		img {
 			float: left;
-			margin: (($header_height - 30px) / 2) 0;
-			// height: $header_height - 10px;
-			height: 30px;
+			margin: (($header_height - 40px) / 2) 0;
+			height: 40px;
 			max-width: none;
 			width: auto;
 		}
@@ -332,6 +331,9 @@
 			display: block;
 			color: white;
 			text-decoration: none;
+		}
+		.logo-small {
+			display: none;
 		}
 	}
 	.header-message {
@@ -367,6 +369,7 @@
 
 		}
 	}
+	
 
 	// Tool Menu
 	.tool-menu {

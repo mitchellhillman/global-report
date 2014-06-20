@@ -22,12 +22,10 @@ while ( have_posts() ) : the_post(); ?>
 		<div class="column">
 		<?php endif; ?>
 			<?php the_content(); ?>
-
-			<?php comments_template( '', true ); ?>
-
 		</div><!-- /.column -->
-
 	</div><!-- /.page-content -->
+
+	<?php comments_template( '', true ); ?>
 
 <?php 
 // End the Loop.

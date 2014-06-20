@@ -60,6 +60,28 @@
 // =====================================================
 
 	function globalreport_customize_register( $wp_customize ) {
+
+		// Bookmark Icon (used in iOS)
+		$wp_customize->add_setting( 'bookmark_icon' , array(
+			'transport'   => 'refresh',
+		) );
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'bookmark_icon', array(
+			'label'        => __( 'Bookmark Icon', 'bookmark_icon' ),
+			'section'    => 'title_tagline',
+			'settings'   => 'bookmark_icon',
+		) ) );
+
+
+		// Small Logo
+		$wp_customize->add_setting( 'small_logo' , array(
+			'transport'   => 'refresh',
+		) );
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'small_logo', array(
+			'label'        => __( 'Small Logo', 'small_logo' ),
+			'section'    => 'header_image',
+			'settings'   => 'small_logo',
+		) ) );
+
 		// Header Color
 		$wp_customize->add_setting( 'header_color' , array(
 			'default'     => '#ed1c24',

@@ -16,8 +16,8 @@
 		<title><?php wp_title('|', true, 'right'); ?></title></title>
 
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="screen">
-		<link rel="icon" type="image/x-icon" href="favicon.ico" />
-		<link rel="apple-touch-icon-precomposed" href="icon.png" />
+		<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />
+		<link rel="apple-touch-icon-precomposed" href="<?php echo get_theme_mod('bookmark_icon'); ?>" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 		<!--[if lt IE 9]>
@@ -44,8 +44,11 @@
 		
 		<div class="header">
 			<div class="masthead <?php if (is_archive()): ?>archive<?php endif; ?>">
-				<?php if (get_header_image() != ''): ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php header_image(); ?>" alt="<?php bloginfo( $name ); ?>" /></a>
+				<?php if (get_header_image() != '' && get_theme_mod('small_logo') != ''): ?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo-fullsize"><img src="<?php header_image(); ?>" alt="<?php bloginfo( $name ); ?>" /></a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo-small"><img src="<?php echo get_theme_mod('small_logo'); ?>" alt="<?php bloginfo( $name ); ?>" /></a>
+				<?php elseif (get_header_image() != ''): ?>
+					<a href="<php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php header_image(); ?>" alt="<?php bloginfo( $name ); ?>" /></a>
 				<?php else: ?>
 					<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( $name ); ?></a></h1>
 				<?php endif ?>

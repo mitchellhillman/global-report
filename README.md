@@ -12,11 +12,6 @@ Global Report is a web app Wordpress theme for Magazines and Blogs. It is inspir
 _This theme has very specific set of features and challenges and as such may not support 'typical' plugins. This theme does not suport commenting on posts._
 
 ## To Do:
-- i18n
-- Commenting on pages
-- User customizable bookmark icon
-- Create demo content
-- Clean up logos and screenshots
 - Post to theme forest
 - Make theme forest demo
 
