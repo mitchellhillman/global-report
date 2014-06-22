@@ -207,7 +207,6 @@
 		border-top: 1px solid darken(white, 5%);
 		padding: 40px 0;
 		&:first-child {
-			// padding-top: 0;
 			border: 0;
 		}
 		.entry-content {
@@ -234,6 +233,13 @@
 				color: darken(white, 50%);
 				line-height: 1.2em;
 				font-style: italic;
+			}
+		}
+	}
+	.archive {
+		.main-entry {
+			&:first-child {
+				padding-top: 70px;
 			}
 		}
 	}
@@ -339,11 +345,11 @@
 	.header-message {
 		font-size: 0.875em;
 		padding-left: 10px;
-		padding-right: $header_height;
+		padding-right: 40px;
 		position: relative;
 		p {
 			margin: 0;
-			line-height: $header_height;
+			line-height: 40px;
 		}
 		a {
 			color: white;
@@ -351,8 +357,8 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: $header_height;
-			height: $header_height;
+			width: 40px;
+			height: 40px;
 			color: darken(white, 60%);
 			&:before {
 				display: block;
@@ -644,7 +650,6 @@
 			text-decoration: none;
 		}
 	}
-
 
 // Comments
 // ==========================================
