@@ -35,16 +35,14 @@ $(document).ready(function() {
 
 	// Load Next Article
 	function loadPostAndCount() {
-		var is_page = $('body').hasClass('page');
-		if ( !is_page ) {
-			var scrolledToBottom 		= $(window).scrollTop() + $(window).height() == $(document).height(),
-				scrolledCloseToBottom	= $(window).scrollTop() + $(window).height() > $(document).height() - 100,
-				pageTooShort			= $('.main').height() < $(window).height();
+		var is_home = $('body').hasClass('home'),
+			is_page = $('body').hasClass('page');
 
-			if (scrolledCloseToBottom) {
-				loadPost();
-				pageNumber++;
-			}
+		if (is_page || is_home ) {
+			// do nothing
+		} else if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+			loadPost();
+			pageNumber++;
 		}
 	}
 
@@ -57,7 +55,6 @@ $(document).ready(function() {
 	});
 
 
-
 // Change URL
 // =====================================================
 	function changeUrl() {
@@ -65,16 +62,21 @@ $(document).ready(function() {
 			is_mobile = $(window).width() < 784;
 
 		if ( (!is_home && is_mobile) || !is_mobile ) { // is not home on mobile
-			var newUrlPageId = $('.menu-entry:first').attr('data-id');
+
+			var permalink = $('.main-entry:first').attr('data-permalink');
+			var title = $('.main-entry:first').attr('data-permalink')
+			
 			$('.main-entry').each(function() {
 				if ( $(this).offset().top < $(window).scrollTop() + 200 ) { 
-					newUrlPageId = $(this).attr('data-id');
+					permalink = $(this).attr('data-permalink');
+					highlightSidebar($(this).attr('data-id'));
 				}
 			});
-			pushState(newUrlPageId);
-			highlightSidebar(newUrlPageId);
+
+			window.history.pushState(null, null, permalink);
 		}
 	}
+
 
 	function highlightSidebar(id) {
 		$('.sidebar-entry').removeClass('active');
@@ -95,6 +97,7 @@ $(document).ready(function() {
 		if (e.keyCode == 27) {
 			e.preventDefault();
 			$('.searchform').removeClass('is-open');
+			$('.menu').removeClass('is-open');
 			$('.tool-menu a').removeClass('is-active');
 		}
 		// Arrown Down : Load Article

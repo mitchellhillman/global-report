@@ -132,16 +132,6 @@
 	add_action('wp_ajax_infinite_scroll', 'globalreport_infinitepaginate');           // for logged in user
 	add_action('wp_ajax_nopriv_infinite_scroll', 'globalreport_infinitepaginate');    // if user not logged in
 
-	// Get Permalink
-	function globalreport_get_permalink(){ 
-		$new_url_page_id = $_POST['new_url_page_id'];
-		$new_url_page_id = get_permalink($new_url_page_id);
-		echo $new_url_page_id;
-
-		die();
-	}
-	add_action('wp_ajax_get_permalink', 'globalreport_get_permalink');           // for logged in user
-	add_action('wp_ajax_nopriv_get_permalink', 'globalreport_get_permalink');    // if user not logged in
 
 // Comments
 // ====================================================

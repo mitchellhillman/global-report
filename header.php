@@ -13,7 +13,7 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title><?php wp_title('|', true, 'right'); ?></title></title>
+		<title><?php bloginfo( 'name' ); ?></title></title>
 
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" media="screen">
 		<link rel="icon" type="image/x-icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />

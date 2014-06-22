@@ -83,23 +83,6 @@
 				});
 			}
 
-			// Get the permalink for a post
-			function pushState(id) {
-				var dataArray = {
-					'action': 'get_permalink',
-					'new_url_page_id': id
-				};
-				$.ajax({
-					url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
-					type: 'POST',
-					data: dataArray,
-					success: function(permalink) {
-						// console.log('ajax return value: ' + permalink);
-						window.history.pushState(null, null, permalink);
-					}
-				});
-			}
-
 		</script>
 		<!-- Script -->
 		<script src="<?php bloginfo('template_url'); ?>/js/script.js" type="text/javascript"></script>
