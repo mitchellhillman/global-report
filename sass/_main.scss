@@ -134,6 +134,11 @@
 	$header_height: 50px;
 	$sidebar_width: 280px;
 	
+	.column {
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
 	.content {
 		color: black;
 		background: white;
@@ -263,14 +268,9 @@
 		max-width: 100%;
 	}
 
+	// Page Content
 	.page-content {
 		padding: 0 0 40px 0;
-	}
-	// Column
-	.column {
-		max-width: 600px;
-		margin: 0 auto;
-		padding: 0 20px;
 	}
 
 	// Advertisement 
@@ -287,7 +287,7 @@
 		}
 	}
 
-// Chrome
+// Header
 // ==========================================
 	
 	// Header
@@ -375,7 +375,6 @@
 
 		}
 	}
-	
 
 	// Tool Menu
 	.tool-menu {
