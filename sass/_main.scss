@@ -560,9 +560,9 @@
 		position: relative;
 		line-height: 1.2em;
 		@include clearfix;
-		// &.has-image {
-		// 	padding-left: 80px;
-		// }
+		p {
+			line-height: 1em;
+		}
 		.author-gravatar {
 			float: left;
 			margin-right: 20px;
