@@ -35,12 +35,9 @@ $(document).ready(function() {
 
 	// Load Next Article
 	function loadPostAndCount() {
-		var is_home = $('body').hasClass('home'),
-			is_page = $('body').hasClass('page');
+		var is_page = $('body').hasClass('page');
 
-		if (is_page || is_home ) {
-			// do nothing
-		} else if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+		if ($(window).scrollTop() + $(window).height() > $(document).height() - 100 && !is_page) {
 			loadPost();
 			pageNumber++;
 		}
