@@ -1,9 +1,5 @@
 # README
 
-Thanks for downloading Global Report!
-
-If you have any questions that are beyond the scope of this help file, please feel free to email me at [mitchellhillman@gmail.com](mailto:mitchellhillman@gmail.com).
-
 Global Report is a web app style Wordpress theme for Magazines and Blogs. It is inspired by other news magazines such as Quartz, Time Magazine and TNW. It features:
 
 - Infinite page loading that rewrites the URL as you scroll.
@@ -14,6 +10,8 @@ Global Report is a web app style Wordpress theme for Magazines and Blogs. It is 
 - Complete retina support
 
 _This theme has very specific set of features and challenges and as such may not support 'typical' plugins. This theme does not support commenting on posts._
+
+If you have any questions that are beyond the scope of this help file, please feel free to email me at [mitchellhillman@gmail.com](mailto:mitchellhillman@gmail.com).
 
 ## Layout
 
