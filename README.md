@@ -1,23 +1,23 @@
 # README
 
-Thank you for purchasing Global Report!
+Thanks for downloading Global Report!
 
 If you have any questions that are beyond the scope of this help file, please feel free to email me at [mitchellhillman@gmail.com](mailto:mitchellhillman@gmail.com).
 
 Global Report is a web app style Wordpress theme for Magazines and Blogs. It is inspired by other news magazines such as Quartz, Time Magazine and TNW. It features:
 
 - Infinite page loading that rewrites the URL as you scroll.
-- Persistant sidebar of news
+- Persistant sidebar of news headlines
 - Easily customize site logo and brand colors
-- Advertising widget area that fits ads of any size
+- Widget area that fits ads of any size
 - Responsive and mobile friendly
 - Complete retina support
 
-_This theme has very specific set of features and challenges and as such may not support 'typical' plugins. This theme does not suport commenting on posts._
+_This theme has very specific set of features and challenges and as such may not support 'typical' plugins. This theme does not support commenting on posts._
 
 ## Layout
 
-This theme is responsive between to set layouts. The desktop, or wide tablet view has a persistent sidebar and main content area.
+This theme is responsive between two set layouts. The desktop, or wide tablet view has a persistent sidebar and main content area.
 
 The sidebar loads a list of all posts. It loads the first 10 ten posts and then loads 10 at a time by clicking the "more" button at the bottom of the sidebar. 
 
@@ -45,9 +45,8 @@ The responsive scrolling layout of this site depends on CSS3 flexbox and fixed h
 
 ## Javascript
 
-This theme is intended for browsers that hav javascript, but it will still be functional at a base level without it. Inifinite scroll, loading more sidebar articles and many other features are impossible without Javascript because they depend on AJAX.
+This theme is intended for browsers that have javascript, but it will still be functional at a base level without it. Inifinite scroll, loading more sidebar articles and many other features are impossible without Javascript because they depend on AJAX.
 
-AJAX functions take advantage of PHP wordpress functions and for that reason funtions that use them are written inline in **footer.php**. 
+AJAX functions take advantage of PHP wordpress functions and for that reason funtions that use them are written inline in **footer.php**. This should be re-factored to use data-attributes instead, then all the JS could be in scripts.
 
-All javascript events and interactions are in **scripts.js**.
-
+All other javascript events and interactions are in **scripts.js**.
