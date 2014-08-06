@@ -1,6 +1,6 @@
 # README
 
-[!Global Report](https://d13yacurqjgara.cloudfront.net/users/56805/screenshots/1673916/screenshot_1x.png)
+![Global Report](https://d13yacurqjgara.cloudfront.net/users/56805/screenshots/1673916/screenshot_1x.png)
 
 Global Report is a web app style Wordpress theme for Magazines and Blogs. [Live demo](http://dev.mitchellhillman.com/global-report/) It is inspired by other news magazines such as Quartz, Time Magazine and TNW. It features:
 
